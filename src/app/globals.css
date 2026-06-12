@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: Arial, Helvetica, sans-serif;
+  --font-fraunces: Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f6f0e7;
+  color: #1f2a25;
+  font-family: var(--font-inter);
+}
+
+::selection {
+  background: #2d6fb6;
+  color: #fffaf1;
+}
+
+a {
+  color: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}

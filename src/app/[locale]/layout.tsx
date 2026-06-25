@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { HtmlLang } from "@/components/HtmlLang";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { isLocale } from "@/lib/i18n";
@@ -20,8 +21,9 @@ export default async function LocaleLayout({
 
   return (
     <>
+      <HtmlLang locale={locale} />
       <SiteHeader locale={locale} />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <SiteFooter locale={locale} />
     </>
   );

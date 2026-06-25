@@ -2,16 +2,47 @@ import type { Locale } from "@/lib/types";
 
 export const siteConfig = {
   name: "IKADA",
-  location: "Sumiyo, Amami Oshima, Kagoshima, Japan",
+  location: "18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204, Japan",
+  locationJa: "〒894-1204 鹿児島県奄美市住用町大字山間18",
+  postalCode: "894-1204",
+  streetAddress: "18 Yamma, Sumiyo-cho",
+  addressLocality: "Amami-shi",
+  addressRegion: "Kagoshima",
   defaultLocale: "en" satisfies Locale,
   locales: ["en", "ja"] as const,
-  email: "hello@example.com",
+  email: "ikada.amami@gmail.com",
   phone: "+81-000-0000-0000",
   images: {
-    hero: "/images/ikada-hero.png",
-    raft: "/images/ikada-raft-story.png",
-    house: "/images/ikada-house-interior.png",
-    nature: "/images/ikada-local-nature.png",
+    logo: "/images/logo/Ikada LOGO tp.png",
+    hero: "/images/house/IMG_20251128_142141.jpg",
+    raft: "/images/raft/DSCF5737.JPG",
+    house: "/images/house/PXL_20260218_135513506.jpg",
+    nature: "/images/raft/DJI_0671.JPG",
+    access: "/images/raft/DJI_0624.JPG",
+    gallery: {
+      raftBuild: [
+        "/images/raft/1768573621141-0.jpg",
+        "/images/raft/1768573621141-4.jpg",
+        "/images/raft/1768573621141-8.jpg",
+        "/images/raft/1768573735437-7.jpg",
+        "/images/raft/DSCF5729.JPG",
+        "/images/raft/DSCF5734.JPG",
+      ],
+      houseLife: [
+        "/images/house/PXL_20260218_135513506.jpg",
+        "/images/house/IMG_20251128_142141.jpg",
+        "/images/house/IMG_0283.png",
+        "/images/raft/PXL_20260427_070004827.jpg",
+      ],
+      island: [
+        "/images/raft/DJI_0671.JPG",
+        "/images/raft/DJI_0624.JPG",
+        "/images/raft/dji_fly_20251127_073530_675_1764197089712_photo_optimized.jpg",
+        "/images/raft/426a0346-ed35-42ed-8283-cd690d85fea4.jpg",
+        "/images/raft/1768573679687-1.jpg",
+        "/images/raft/PXL_20260427_063138489.jpg",
+      ],
+    },
   },
 };
 

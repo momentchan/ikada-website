@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Mail, MapPin } from "lucide-react";
+import { CalendarDays, Mail, MapPin } from "lucide-react";
+import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { isLocale } from "@/lib/i18n";
@@ -25,7 +26,7 @@ export default async function ContactPage({ params }: Props) {
   const locale: Locale = isLocale(rawLocale) ? rawLocale : "en";
 
   return (
-    <section className="bg-paper py-16">
+    <section className="bg-paper py-20 sm:py-28">
       <Container className="max-w-3xl">
         <SectionHeading
           title={locale === "ja" ? "お問い合わせ" : "Contact"}
@@ -35,15 +36,22 @@ export default async function ContactPage({ params }: Props) {
               : "Questions before booking, stay details, and media inquiries can start here."
           }
         />
-        <div className="mt-8 rounded-lg border border-ink/10 bg-shell p-5">
-          <p className="flex items-center gap-2">
+        <div className="mt-10 rounded-sm border border-ink/8 bg-shell p-7 shadow-sm">
+          <p className="flex items-center gap-3">
             <Mail aria-hidden="true" className="h-5 w-5 text-rust" />
-            {siteConfig.email}
+            <a href={`mailto:${siteConfig.email}`} className="font-semibold text-sea underline-offset-4 hover:underline">
+              {siteConfig.email}
+            </a>
           </p>
-          <p className="mt-3 flex items-center gap-2">
-            <MapPin aria-hidden="true" className="h-5 w-5 text-rust" />
-            {siteConfig.location}
+          <p className="mt-4 flex items-start gap-3 text-ink/72">
+            <MapPin aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-rust" />
+            {locale === "ja" ? siteConfig.locationJa : siteConfig.location}
           </p>
+        </div>
+        <div className="mt-8">
+          <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
+            {locale === "ja" ? "空室を確認" : "Check Availability"}
+          </ButtonLink>
         </div>
       </Container>
     </section>

@@ -94,7 +94,7 @@ export const dictionary = {
         },
         {
           title: "Parking",
-          body: "Parking details and the exact address are sent after booking confirmation.",
+          body: "The address is 18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204. Parking details are sent after booking confirmation.",
         },
         {
           title: "Food and supplies",
@@ -219,7 +219,7 @@ export const dictionary = {
         },
         {
           title: "駐車場",
-          body: "詳しい住所と駐車場所は予約確定後にご案内します。",
+          body: "住所は〒894-1204 鹿児島県奄美市住用町大字山間18です。駐車場所の詳細は予約確定後にご案内します。",
         },
         {
           title: "食料・日用品",

@@ -221,8 +221,8 @@ export const defaultHouseInfo: HouseInfo = {
     },
   ],
   accessGuide: {
-    en: "Rental car is strongly recommended. From Amami Airport, drive south toward Naze and Sumiyo. From Naze, continue toward Sumiyo on the main island road. Exact address and parking details are sent after confirmation.",
-    ja: "レンタカーを強くおすすめします。奄美空港からは名瀬・住用方面へ南下、名瀬からは住用方面へ。正確な住所と駐車場所は予約確定後にお送りします。",
+    en: "Rental car is strongly recommended. IKADA is at 18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204. From Amami Airport, drive south toward Naze and Sumiyo. From Naze, continue toward Sumiyo on the main island road. Parking and check-in details are sent after confirmation.",
+    ja: "レンタカーを強くおすすめします。IKADAは〒894-1204 鹿児島県奄美市住用町大字山間18にあります。奄美空港からは名瀬・住用方面へ南下、名瀬からは住用方面へ。駐車場所とチェックイン詳細は予約確定後にお送りします。",
   },
   emergencyInfo: {
     en: "For fire or ambulance in Japan, call 119. For police, call 110. Watch for habu snakes around bushes and dark roads, and follow weather warnings during typhoon or heavy rain.",

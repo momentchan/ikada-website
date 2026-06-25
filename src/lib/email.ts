@@ -17,7 +17,7 @@ function resendClient() {
 }
 
 async function sendEmail(message: EmailMessage) {
-  const from = process.env.EMAIL_FROM || "IKADA <hello@example.com>";
+  const from = process.env.EMAIL_FROM || "IKADA <ikada.amami@gmail.com>";
   const client = resendClient();
   if (!client) {
     console.info("[email:dry-run]", { from, ...message });

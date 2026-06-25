@@ -11,14 +11,14 @@ export function PolicyPage({
   sections: Array<{ title: string; body: string }>;
 }) {
   return (
-    <section className="bg-paper py-16">
+    <section className="bg-paper py-20 sm:py-28">
       <Container className="max-w-4xl">
         <SectionHeading title={title} body={intro} />
-        <div className="mt-10 space-y-4">
+        <div className="mt-12 space-y-4">
           {sections.map((section) => (
-            <article key={section.title} className="rounded-lg border border-ink/10 bg-shell p-5">
+            <article key={section.title} className="rounded-sm border border-ink/8 bg-shell p-6">
               <h2 className="font-display text-2xl font-bold">{section.title}</h2>
-              <p className="mt-3 whitespace-pre-line text-sm leading-7 text-ink/72">{section.body}</p>
+              <p className="mt-3 whitespace-pre-line text-sm leading-7 text-ink/68">{section.body}</p>
             </article>
           ))}
         </div>

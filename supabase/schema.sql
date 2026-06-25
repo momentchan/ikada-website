@@ -187,5 +187,5 @@ before insert or update on blocked_dates
 for each row execute function prevent_block_booking_conflict();
 
 insert into listings (id, name, location, max_guests)
-values ('ikada-main-house', 'IKADA', 'Sumiyo, Amami Oshima, Kagoshima, Japan', 5)
+values ('ikada-main-house', 'IKADA', '18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204, Japan', 5)
 on conflict (id) do nothing;

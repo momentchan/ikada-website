@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/PolicyPage";
 import { isLocale } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 import type { Locale } from "@/lib/types";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -39,11 +40,11 @@ export default async function LegalPage({ params }: Props) {
         },
         {
           title: locale === "ja" ? "所在地" : "Address",
-          body: "Sumiyo, Amami-shi, Kagoshima, Japan / Exact public disclosure placeholder",
+          body: locale === "ja" ? siteConfig.locationJa : siteConfig.location,
         },
         {
           title: locale === "ja" ? "連絡先" : "Contact",
-          body: "hello@example.com / Phone number placeholder",
+          body: `${siteConfig.email} / Phone number placeholder`,
         },
         {
           title: locale === "ja" ? "販売価格・追加料金" : "Prices And Fees",

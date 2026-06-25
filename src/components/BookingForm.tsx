@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Loader2, Send } from "lucide-react";
+import { LocaleLink } from "@/components/LocaleLink";
 import type { HouseSettings, Locale } from "@/lib/types";
 import { calculateQuote, nightsBetween } from "@/lib/pricing";
 import { yen } from "@/lib/format";
@@ -12,7 +13,15 @@ type State =
   | { status: "success"; message: string }
   | { status: "error"; message: string };
 
-export function BookingForm({ locale, settings }: { locale: Locale; settings: HouseSettings }) {
+export function BookingForm({
+  locale,
+  settings,
+  initialToday,
+}: {
+  locale: Locale;
+  settings: HouseSettings;
+  initialToday: string;
+}) {
   const [state, setState] = useState<State>({ status: "idle" });
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
@@ -58,36 +67,53 @@ export function BookingForm({ locale, settings }: { locale: Locale; settings: Ho
     });
   }
 
-  const today = new Date().toISOString().slice(0, 10);
+  const fieldClass =
+    "min-h-12 rounded-sm border border-ink/12 bg-white px-3 text-ink transition focus:border-wood";
+  const labelClass = "grid gap-2 text-sm font-bold text-ink/72";
 
   return (
-    <form onSubmit={onSubmit} className="rounded-lg border border-ink/10 bg-shell p-5 shadow-soft">
+    <form onSubmit={onSubmit} className="rounded-sm border border-ink/8 bg-shell p-6 shadow-lift sm:p-7">
+      <div className="mb-6 border-b border-ink/8 pb-6">
+        <p className="eyebrow mb-2">
+          <span className="h-px w-8 bg-rust/60" />
+          {locale === "ja" ? "リクエスト" : "Request"}
+        </p>
+        <h2 className="font-display text-3xl font-bold">
+          {locale === "ja" ? "まずは日程を送る" : "Start with your dates"}
+        </h2>
+        <p className="mt-2 text-sm leading-7 text-ink/62">
+          {locale === "ja"
+            ? "送信だけでは予約確定や支払いは発生しません。"
+            : "Sending this form does not confirm payment or lock you into a booking."}
+        </p>
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-semibold text-ink/75">
+        <label className={labelClass}>
           {locale === "ja" ? "チェックイン" : "Check-in"}
           <input
             required
             type="date"
             name="checkIn"
-            min={today}
+            min={initialToday}
             value={checkIn}
             onChange={(event) => setCheckIn(event.target.value)}
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
+            className={fieldClass}
           />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75">
+        <label className={labelClass}>
           {locale === "ja" ? "チェックアウト" : "Check-out"}
           <input
             required
             type="date"
             name="checkOut"
-            min={checkIn || today}
+            min={checkIn || initialToday}
             value={checkOut}
             onChange={(event) => setCheckOut(event.target.value)}
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
+            className={fieldClass}
           />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75">
+        <label className={labelClass}>
           {locale === "ja" ? "人数" : "Guests"}
           <input
             required
@@ -97,63 +123,42 @@ export function BookingForm({ locale, settings }: { locale: Locale; settings: Ho
             max={settings.maxGuests}
             value={guests}
             onChange={(event) => setGuests(Number(event.target.value))}
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
+            className={fieldClass}
           />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75">
+        <label className={labelClass}>
           {locale === "ja" ? "国・地域" : "Country"}
-          <input
-            required
-            name="country"
-            autoComplete="country-name"
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
-          />
+          <input required name="country" autoComplete="country-name" className={fieldClass} />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75">
+        <label className={labelClass}>
           {locale === "ja" ? "名前" : "Name"}
-          <input
-            required
-            name="guestName"
-            autoComplete="name"
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
-          />
+          <input required name="guestName" autoComplete="name" className={fieldClass} />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75">
+        <label className={labelClass}>
           {locale === "ja" ? "メール" : "Email"}
-          <input
-            required
-            type="email"
-            name="guestEmail"
-            autoComplete="email"
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
-          />
+          <input required type="email" name="guestEmail" autoComplete="email" className={fieldClass} />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75 sm:col-span-2">
+        <label className={`${labelClass} sm:col-span-2`}>
           {locale === "ja" ? "電話番号" : "Phone"}
-          <input
-            required
-            name="guestPhone"
-            autoComplete="tel"
-            className="min-h-11 rounded-lg border border-ink/15 bg-white px-3 text-ink"
-          />
+          <input required name="guestPhone" autoComplete="tel" className={fieldClass} />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink/75 sm:col-span-2">
+        <label className={`${labelClass} sm:col-span-2`}>
           {locale === "ja" ? "旅の目的・メッセージ" : "Message / purpose of trip"}
           <textarea
             name="message"
             rows={5}
-            className="rounded-lg border border-ink/15 bg-white px-3 py-3 text-ink"
+            className="rounded-sm border border-ink/12 bg-white px-3 py-3 text-ink transition focus:border-wood"
           />
         </label>
       </div>
 
       {quote ? (
-        <div className="mt-5 rounded-lg bg-paper p-4 text-sm text-ink/75">
+        <div className="mt-5 rounded-sm bg-ink p-5 text-sm text-shell/75">
           <div className="flex items-center justify-between gap-3">
             <span>
               {quote.nights} {locale === "ja" ? "泊の概算" : quote.nights === 1 ? "night estimate" : "nights estimate"}
             </span>
-            <strong className="text-lg text-ink">{yen(quote.total)}</strong>
+            <strong className="font-display text-2xl text-shell">{yen(quote.total)}</strong>
           </div>
           <p className="mt-1">
             {locale === "ja"
@@ -163,26 +168,47 @@ export function BookingForm({ locale, settings }: { locale: Locale; settings: Ho
         </div>
       ) : null}
 
-      <label className="mt-5 flex gap-3 text-sm leading-6 text-ink/75">
+      <label className="mt-5 flex gap-3 text-sm leading-6 text-ink/72">
         <input required type="checkbox" name="acceptedRules" value="true" className="mt-1 h-4 w-4 rounded border-ink/20" />
         <span>
-          {locale === "ja"
-            ? "ハウスルール、キャンセルポリシー、自然環境への注意を確認しました。"
-            : "I have read the house rules, cancellation policy, and rural nature notes."}
+          {locale === "ja" ? (
+            <>
+              <LocaleLink locale={locale} href="/house-rules" className="font-semibold text-sea underline-offset-4 hover:underline">
+                ハウスルール
+              </LocaleLink>
+              、
+              <LocaleLink locale={locale} href="/cancellation" className="font-semibold text-sea underline-offset-4 hover:underline">
+                キャンセルポリシー
+              </LocaleLink>
+              、自然環境への注意を確認しました。
+            </>
+          ) : (
+            <>
+              I have read the{" "}
+              <LocaleLink locale={locale} href="/house-rules" className="font-semibold text-sea underline-offset-4 hover:underline">
+                house rules
+              </LocaleLink>
+              ,{" "}
+              <LocaleLink locale={locale} href="/cancellation" className="font-semibold text-sea underline-offset-4 hover:underline">
+                cancellation policy
+              </LocaleLink>
+              , and rural nature notes.
+            </>
+          )}
         </span>
       </label>
 
       <button
         type="submit"
         disabled={state.status === "loading"}
-        className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-bold text-shell transition hover:bg-charcoal disabled:cursor-wait disabled:opacity-65 sm:w-auto"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm bg-rust px-4 py-2 text-sm font-bold text-shell shadow-soft transition hover:-translate-y-0.5 hover:bg-wood disabled:cursor-wait disabled:opacity-65 sm:w-auto"
       >
         {state.status === "loading" ? <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" /> : <Send aria-hidden="true" className="h-4 w-4" />}
         {locale === "ja" ? "リクエストを送る" : "Send Request"}
       </button>
 
       {state.status === "success" || state.status === "error" ? (
-        <p className={state.status === "success" ? "mt-4 text-sm font-semibold text-moss" : "mt-4 text-sm font-semibold text-rust"}>
+        <p className={state.status === "success" ? "mt-4 rounded-sm bg-moss/10 p-3 text-sm font-semibold text-moss" : "mt-4 rounded-sm bg-rust/10 p-3 text-sm font-semibold text-rust"}>
           {state.message}
         </p>
       ) : null}

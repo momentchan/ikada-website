@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { isLocale } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site";
 import { getDataSnapshot } from "@/lib/store";
 
 export const runtime = "nodejs";
@@ -13,18 +14,24 @@ export async function GET(request: Request) {
       ? [
           "IKADA アクセスガイド",
           "",
+          siteConfig.locationJa,
+          siteConfig.email,
+          "",
           data.houseInfo.accessGuide.ja,
           "",
           "注意: レンタカーを強くおすすめします。",
-          "正確な住所と駐車場所は予約確定後にお送りします。",
+          "駐車場所やチェックイン詳細は予約確定後にお送りします。",
         ].join("\n")
       : [
           "IKADA Access Guide",
           "",
+          siteConfig.location,
+          siteConfig.email,
+          "",
           data.houseInfo.accessGuide.en,
           "",
           "Important: rental car is strongly recommended.",
-          "Exact address and parking details are sent after confirmation.",
+          "Parking and check-in details are sent after confirmation.",
         ].join("\n");
 
   return new NextResponse(text, {

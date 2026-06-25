@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --font-inter: Arial, Helvetica, sans-serif;
-  --font-fraunces: Georgia, "Times New Roman", serif;
   color-scheme: light;
 }
 
@@ -18,14 +16,23 @@ html {
 
 body {
   margin: 0;
-  background: #f6f0e7;
+  background:
+    radial-gradient(circle at 18% 8%, rgb(196 163 109 / 0.1), transparent 28rem),
+    radial-gradient(circle at 82% 92%, rgb(94 116 71 / 0.06), transparent 24rem),
+    linear-gradient(180deg, #f6f1e8 0%, #ede4d6 100%);
   color: #1f2a25;
-  font-family: var(--font-inter);
+  font-family: var(--font-sans), var(--font-sans-ja), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+:lang(ja) body {
+  font-family: var(--font-sans-ja), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
-  background: #2d6fb6;
-  color: #fffaf1;
+  background: rgb(173 90 53 / 0.28);
+  color: #1f2a25;
 }
 
 a {
@@ -37,6 +44,49 @@ textarea,
 select,
 button {
   font: inherit;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  outline-color: #936542;
+  outline-offset: 3px;
+}
+
+input,
+textarea,
+select {
+  box-shadow: inset 0 1px 0 rgb(31 42 37 / 0.04);
+}
+
+@layer utilities {
+  .paper-grain {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgb(31 42 37 / 0.045) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .section-rule {
+    border-top: 1px solid rgb(31 42 37 / 0.08);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-rust;
+  }
+
+  .eyebrow-light {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-tide;
+  }
+
+  .display-hero {
+    @apply text-balance font-display font-bold leading-[0.98] text-shell;
+  }
+
+  .prose-width {
+    @apply max-w-2xl text-pretty leading-8 text-ink/72;
+  }
 }
 
 .text-balance {

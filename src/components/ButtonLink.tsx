@@ -24,10 +24,10 @@ export function ButtonLink({
       locale={locale}
       href={href}
       className={cx(
-        "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition",
-        variant === "primary" && "bg-ink text-shell hover:bg-charcoal",
-        variant === "secondary" && "border border-ink/20 bg-shell/80 text-ink hover:border-ink/40",
-        variant === "ghost" && "text-ink underline-offset-4 hover:underline",
+        "inline-flex min-h-11 items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition",
+        variant === "primary" && "bg-ink text-shell shadow-soft hover:-translate-y-0.5 hover:bg-charcoal hover:shadow-lift",
+        variant === "secondary" && "border border-ink/15 bg-shell/90 text-ink shadow-sm hover:-translate-y-0.5 hover:border-ink/30 hover:bg-white",
+        variant === "ghost" && "text-ink underline-offset-4 hover:text-rust hover:underline",
         className,
       )}
     >

@@ -1,4 +1,4 @@
-import { CalendarDays, ChevronDown, Compass, Hammer, Leaf, MapPinned, Waves } from "lucide-react";
+import { CalendarDays, ChevronDown, Hammer, Leaf, MapPinned, Waves } from "lucide-react";
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
@@ -28,11 +28,6 @@ export default async function HomePage({ params }: Props) {
   const { locale: rawLocale } = await params;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : "en";
   const copy = t(locale);
-
-  const materials =
-    locale === "ja"
-      ? ["竹", "ブルーシート", "ロープ"]
-      : ["Bamboo", "Blue tarp", "Rope"];
 
   const raftGallery = siteConfig.images.gallery.raftBuild.slice(0, 3).map((src, index) => ({
     src,
@@ -88,39 +83,15 @@ export default async function HomePage({ params }: Props) {
               {copy.home.eyebrow}
             </p>
             <h1 className="display-hero max-w-4xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
-              {locale === "ja" ? "奄美大島の、小さなゲストハウス。" : "A small guest house on Amami Oshima."}
+              {copy.home.heroTitle}
             </h1>
-            <p className="mt-6 max-w-2xl text-balance font-display text-xl font-semibold leading-tight text-shell/90 sm:text-3xl lg:text-4xl">
-              {locale === "ja" ? "ゲストハウスの前に、筏がありました。" : "Before there was a guest house, there was a raft."}
-            </p>
-            <p className="mt-5 max-w-2xl text-pretty text-base leading-8 text-shell/80 sm:text-lg">
-              {copy.home.intro}
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9">
               <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
                 {copy.cta.availability}
-              </ButtonLink>
-              <ButtonLink locale={locale} href="/story" variant="secondary" icon={Hammer}>
-                {copy.cta.story}
-              </ButtonLink>
-              <ButtonLink locale={locale} href="/guide" variant="secondary" icon={Compass}>
-                {copy.cta.area}
               </ButtonLink>
             </div>
           </div>
         </Container>
-        <div className="absolute bottom-6 left-1/2 hidden w-full max-w-7xl -translate-x-1/2 px-8 md:block">
-          <div className="flex max-w-md flex-wrap gap-2">
-            {materials.map((material) => (
-              <span
-                key={material}
-                className="rounded-full bg-shell/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-shell/70 backdrop-blur-sm"
-              >
-                {material}
-              </span>
-            ))}
-          </div>
-        </div>
         <div className="absolute bottom-5 right-6 hidden text-shell/40 md:block" aria-hidden="true">
           <ChevronDown className="h-6 w-6 animate-pulse" />
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bed, CalendarDays, Car, Check, Clock, ShieldCheck, UtensilsCrossed, Wifi, X } from "lucide-react";
+import { Bed, CalendarDays, Car, Check, Clock, Flame, ShieldCheck, UtensilsCrossed, Waves, Wifi, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
@@ -20,6 +20,8 @@ const facilityIcons: Record<string, LucideIcon> = {
   kitchen: UtensilsCrossed,
   wifi: Wifi,
   parking: Car,
+  sauna: Flame,
+  rental: Waves,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -127,6 +127,181 @@ export const defaultGuideSpots: GuideSpot[] = [
     sortOrder: 40,
     updatedAt: now,
   },
+  {
+    id: "katoku-beach",
+    category: "beach",
+    name: {
+      en: "Katoku Beach",
+      ja: "加計呂久海岸",
+    },
+    distance: {
+      en: "About 15-25 min by car",
+      ja: "車で約15〜25分",
+    },
+    description: {
+      en: "A sandy Sumiyo-area beach known for surf-friendly waves and open Pacific views.",
+      ja: "住用エリアの砂浜。サーフにも向く波と、開けた太平洋の景色が魅力です。",
+    },
+    recommendation: {
+      en: "Check surf and tide conditions before you go. Mornings can feel especially calm.",
+      ja: "波と潮の状態は出発前に確認を。朝は特に静かな時間帯です。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Katoku%20Beach%20Amami%20Oshima",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 15,
+    updatedAt: now,
+  },
+  {
+    id: "kusuku-beach",
+    category: "beach",
+    name: {
+      en: "Kusuku Beach",
+      ja: "楠久海岸",
+    },
+    distance: {
+      en: "About 20-30 min by car",
+      ja: "車で約20〜30分",
+    },
+    description: {
+      en: "A rocky southern coast with character — better for watching the sea and timing the tides than swimming.",
+      ja: "岩場が続く南部の海岸。泳ぐより、潮のタイミングを見ながら海を楽しむ場所です。",
+    },
+    recommendation: {
+      en: "Worth it when the tide and swell line up. Not a casual swim spot.",
+      ja: "潮とうねりのタイミングが合えば行く価値あり。気軽に泳ぐ場所ではありません。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Kusuku%20Beach%20Amami%20Oshima",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 25,
+    updatedAt: now,
+  },
+  {
+    id: "funangyo-falls",
+    category: "nature",
+    name: {
+      en: "Funangyo Falls",
+      ja: "フナンギョウの滝",
+    },
+    distance: {
+      en: "About 30-45 min by car, plus a short hike",
+      ja: "車で約30〜45分＋短いハイキング",
+    },
+    description: {
+      en: "A short forest walk leads to a waterfall deep in Amami's green interior — a good half-day escape from the coast.",
+      ja: "森の中を少し歩くと滝にたどり着く、奄美の緑の奥へ入る半日コースです。",
+    },
+    recommendation: {
+      en: "Wear shoes you do not mind getting wet. Go early if you want the trail quieter.",
+      ja: "濡れてもよい靴で。静かに楽しみたいなら早めの出発がおすすめです。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Funangyo%20Falls%20Amami%20Oshima",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 35,
+    updatedAt: now,
+  },
+  {
+    id: "sumiyo-mangroves",
+    category: "nature",
+    name: {
+      en: "Sumiyo Mangrove River",
+      ja: "住用のマングローブ",
+    },
+    distance: {
+      en: "Just down the road from IKADA",
+      ja: "IKADAからすぐそば",
+    },
+    description: {
+      en: "Mangrove channels close to the house — paddle out by car to the river centre, or launch a kayak or SUP from IKADA.",
+      ja: "家のすぐ近くのマングローブ水路。車で川のセンターへ行くか、IKADAのカヤックやSUPで出かけられます。",
+    },
+    recommendation: {
+      en: "Tide timing changes the mood completely. One of the easiest ways to feel Amami from your first morning.",
+      ja: "潮の時間で表情が大きく変わります。初日の朝から奄美を感じやすい場所です。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Mangrove%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 5,
+    updatedAt: now,
+  },
+  {
+    id: "mangrove-restaurant",
+    category: "food",
+    name: {
+      en: "Mangrove Restaurant",
+      ja: "マングローブレストラン",
+    },
+    distance: {
+      en: "Sumiyo area; check map and hours",
+      ja: "住用エリア。地図と営業時間を確認してください。",
+    },
+    description: {
+      en: "A local restaurant in the mangrove area — a natural dinner stop after a river afternoon.",
+      ja: "マングローブエリアの食事処。川遊びのあとの夕食にちょうどよい場所です。",
+    },
+    recommendation: {
+      en: "Pair it with a mangrove paddle day. Hours can change, so check before driving over.",
+      ja: "マングローブの午後とセットで。営業時間は変わることがあるので事前確認を。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Mangrove%20Restaurant%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 45,
+    updatedAt: now,
+  },
+  {
+    id: "yottemitei",
+    category: "food",
+    name: {
+      en: "Yottemitei",
+      ja: "よってみ亭",
+    },
+    distance: {
+      en: "Sumiyo area; check map and hours",
+      ja: "住用エリア。地図と営業時間を確認してください。",
+    },
+    description: {
+      en: "A neighbourhood restaurant worth knowing when you want a proper island meal without heading to Naze.",
+      ja: "名瀬まで出ずに、しっかり島の食事をしたい時に覚えておきたい近所の食事処です。",
+    },
+    recommendation: {
+      en: "Good for an unhurried dinner close to IKADA.",
+      ja: "IKADAの近くで、ゆっくり夕食を楽しみたい時に。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Yottemitei%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 50,
+    updatedAt: now,
+  },
+  {
+    id: "okonomiyaki-okini",
+    category: "food",
+    name: {
+      en: "Okonomiyaki Okini",
+      ja: "お好み焼き おおきに",
+    },
+    distance: {
+      en: "Sumiyo area; call ahead recommended",
+      ja: "住用エリア。事前の電話予約をおすすめします。",
+    },
+    description: {
+      en: "A local okonomiyaki spot — casual, filling, and very Amami in spirit.",
+      ja: "地元のお好み焼き屋。気軽でボリュームがあり、奄美らしい雰囲気が楽しめます。",
+    },
+    recommendation: {
+      en: "Call ahead before you go. Popular nights can fill up.",
+      ja: "行く前に電話を。混む日は待ち時間が出ることもあります。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Okonomiyaki%20Okini%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 55,
+    updatedAt: now,
+  },
 ];
 
 export const defaultFaqItems: FaqItem[] = [
@@ -164,8 +339,8 @@ export const defaultHouseInfo: HouseInfo = {
     ja: "静かな時間、みんなで食べるごはん、小さな冒険のための島の一軒家。",
   },
   description: {
-    en: "IKADA is not trying to be a hotel. It is a modest base in Sumiyo for people who like nature, driving small roads, cooking simple meals, and letting the island set the pace.",
-    ja: "IKADAはホテルを目指していません。住用の自然の近くで、小さな道を走り、簡単な食事を作り、島のペースで過ごすための素朴な拠点です。",
+    en: "IKADA is not trying to be a hotel. It is a modest base in Sumiyo for people who like nature, sauna evenings, paddle days on nearby mangrove rivers, and letting the island set the pace.",
+    ja: "IKADAはホテルを目指していません。住用の自然の近くで、サウナの夜、すぐそばのマングローブをカヤックやSUPで楽しみ、島のペースで過ごすための素朴な拠点です。",
   },
   facilities: [
     {
@@ -192,6 +367,16 @@ export const defaultHouseInfo: HouseInfo = {
       key: "parking",
       label: { en: "Parking", ja: "駐車場" },
       value: { en: "On-site or nearby parking available", ja: "敷地内または近隣に駐車可能" },
+    },
+    {
+      key: "sauna",
+      label: { en: "Sauna", ja: "サウナ" },
+      value: { en: "Wood-fired sauna with an outdoor cold plunge", ja: "薪サウナと、アウトドアの水風呂" },
+    },
+    {
+      key: "rental",
+      label: { en: "On-site rental", ja: "レンタル" },
+      value: { en: "Kayak, stand-up paddle, and scooter", ja: "カヤック、SUP、スクーター" },
     },
   ],
   rules: [

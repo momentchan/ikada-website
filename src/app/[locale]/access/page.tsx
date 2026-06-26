@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Car, Download, MapPin, Navigation, ShoppingBasket } from "lucide-react";
+import { Car, Download, MapPin, Navigation, Trees } from "lucide-react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
@@ -71,7 +71,7 @@ export default async function AccessPage({ params }: Props) {
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container className="grid gap-4 lg:grid-cols-4">
           {copy.access.sections.map((section, index) => {
-            const Icon = [Navigation, Car, MapPin, ShoppingBasket][index] ?? Car;
+            const Icon = [Navigation, Car, MapPin, Trees][index] ?? Car;
             return (
               <article key={section.title} className="surface-card p-6">
                 <Icon aria-hidden="true" className="h-5 w-5 text-rust" />

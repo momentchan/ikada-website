@@ -21,6 +21,7 @@ export const dictionary = {
     },
     home: {
       eyebrow: "Sumiyo, Amami Oshima",
+      heroTitle: "First a raft. Then a guest house.",
       headline: "A small island guest house in Amami, named for a raft.",
       intro:
         "IKADA means raft. It began with bamboo, scrap wood, blue tarps, rope, and a few friends on the water. The guest house carries that spirit — a quiet base for slow days on the island.",
@@ -75,6 +76,8 @@ export const dictionary = {
       goodItems: [
         "People who like nature and rural island life",
         "Slow travel, writing, cooking, and quiet mornings",
+        "Sauna evenings and a cold plunge under the stars",
+        "Surf, paddle, and small adventures from a quiet neighborhood base",
         "Small groups, couples, families, or friends",
         "Guests who want something more personal than a hotel",
       ],
@@ -88,7 +91,7 @@ export const dictionary = {
     access: {
       title: "Access",
       intro:
-        "IKADA is in the Sumiyo area of Amami Oshima. A rental car is strongly recommended; it gives you the freedom this stay is built around.",
+        "IKADA is in the Sumiyo area of Amami Oshima — close to mangrove rivers, surf beaches, and waterfall hikes. A rental car is strongly recommended.",
       sections: [
         {
           title: "From Amami Airport",
@@ -103,15 +106,15 @@ export const dictionary = {
           body: "The address is 18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204. Parking details are sent after booking confirmation.",
         },
         {
-          title: "Food and supplies",
-          body: "Buy groceries before arriving if you want an easy first night. Convenience stores and supermarkets are easier around Naze than deep in the rural areas.",
+          title: "What's nearby",
+          body: "Mangrove rivers are just down the road. Surf beaches, local restaurants, and short waterfall hikes are within easy driving distance — without staying in busy Naze.",
         },
       ],
     },
     guide: {
       title: "Local Guide",
       intro:
-        "A starter map for nearby food, beaches, mangroves, rainy-day plans, and useful places. Please check hours and conditions before leaving.",
+        "Personal notes for days that start from IKADA — mangroves next door, surf beaches, waterfall hikes, and local food. Check hours and weather before you go.",
       categories: {
         food: "Food",
         cafe: "Cafes",
@@ -152,6 +155,7 @@ export const dictionary = {
     },
     home: {
       eyebrow: "奄美大島・住用",
+      heroTitle: "最初は筏。それから、宿。",
       headline: "筏の名を持つ、奄美の小さなゲストハウス。",
       intro:
         "IKADAは「筏」。竹、廃材、ブルーシート、ロープ、友人たちと海に出た話から始まりました。この宿は、その精神を受け継ぐ、島でゆっくり過ごすための拠点です。",
@@ -206,6 +210,8 @@ export const dictionary = {
       goodItems: [
         "自然や集落のある島暮らしが好きな人",
         "ゆっくり旅、書くこと、料理、静かな朝",
+        "サウナのあと、星空の下で水風呂を楽しみたい人",
+        "静かな集落を拠点に、サーフやパドル、小さな冒険をしたい人",
         "少人数の友人、カップル、家族",
         "ホテルより個人的な滞在を求める人",
       ],
@@ -219,7 +225,7 @@ export const dictionary = {
     access: {
       title: "アクセス",
       intro:
-        "IKADAは奄美大島の住用エリアにあります。この滞在を楽しむには、レンタカーを強くおすすめします。",
+        "IKADAは奄美大島の住用エリアにあります。マングローブ、サーフビーチ、滝ハイキングまで近い場所です。レンタカーを強くおすすめします。",
       sections: [
         {
           title: "奄美空港から",
@@ -234,15 +240,15 @@ export const dictionary = {
           body: "住所は〒894-1204 鹿児島県奄美市住用町大字山間18です。駐車場所の詳細は予約確定後にご案内します。",
         },
         {
-          title: "食料・日用品",
-          body: "初日の夜を楽にしたい場合は、到着前に買い出しをしておくのがおすすめです。",
+          title: "周辺の見どころ",
+          body: "マングローブはすぐそば。サーフビーチ、地元の食事処、短い滝ハイキングまで、名瀬のにぎわいから離れながら車で行けます。",
         },
       ],
     },
     guide: {
       title: "周辺ガイド",
       intro:
-        "食事、海、マングローブ、雨の日、便利な場所のスターターガイドです。営業時間や天候は出発前に確認してください。",
+        "IKADAを起点に動く日のためのメモです。すぐそばのマングローブ、サーフビーチ、滝ハイキング、地元の食事処。営業時間と天候は出発前に確認してください。",
       categories: {
         food: "食事",
         cafe: "カフェ",

@@ -41,7 +41,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <Image src={siteConfig.images.logo} alt="IKADA" fill sizes="80px" className="object-contain" />
               </span>
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-shell/50">
-                Amami Oshima
+                {siteConfig.tagline[locale]}
               </span>
             </div>
             <p className="mt-5 max-w-md text-sm leading-7 text-shell/72">

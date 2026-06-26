@@ -28,27 +28,25 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     >
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:min-h-18 sm:px-6 lg:px-8">
         <Link href={`/${locale}`} className="inline-flex shrink-0 items-center gap-3">
-          <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm bg-ink text-shell shadow-soft">
+          <span className="relative h-12 w-20 overflow-hidden">
             <Image
               src={siteConfig.images.logo}
-              alt=""
+              alt="IKADA"
               fill
-              sizes="40px"
-              className="object-contain p-1.5"
+              sizes="80px"
+              className={cx(
+                "object-contain",
+                isHome ? "mix-blend-difference" : "invert mix-blend-multiply",
+              )}
             />
           </span>
-          <span className="leading-tight">
-            <span className={cx("block font-display text-xl font-bold", isHome ? "text-shell" : "text-ink")}>
-              IKADA
-            </span>
-            <span
-              className={cx(
-                "hidden text-[11px] font-bold uppercase tracking-[0.16em] sm:block",
-                isHome ? "text-shell/55" : "text-ink/45",
-              )}
-            >
-              Amami island house
-            </span>
+          <span
+            className={cx(
+              "hidden text-[11px] font-bold uppercase tracking-[0.18em] sm:block",
+              isHome ? "text-shell/55" : "text-ink/45",
+            )}
+          >
+            {siteConfig.tagline[locale]}
           </span>
         </Link>
 

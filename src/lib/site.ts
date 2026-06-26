@@ -2,6 +2,10 @@ import type { Locale } from "@/lib/types";
 
 export const siteConfig = {
   name: "IKADA",
+  tagline: {
+    en: "Amami Oshima",
+    ja: "奄美大島",
+  },
   location: "18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204, Japan",
   locationJa: "〒894-1204 鹿児島県奄美市住用町大字山間18",
   postalCode: "894-1204",

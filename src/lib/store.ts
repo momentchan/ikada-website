@@ -49,32 +49,68 @@ function cloneDefaultData(): IkadaData {
   return JSON.parse(JSON.stringify(defaultData)) as IkadaData;
 }
 
+function isFilesystemUnavailable(error: unknown) {
+  const code = (error as NodeJS.ErrnoException).code;
+  return Boolean(
+    code &&
+      ["ENOENT", "EROFS", "EACCES", "ENOTSUP", "EPERM", "ENOSPC"].includes(code),
+  );
+}
+
+function canUseFileStore() {
+  if (process.env.IKADA_STORE_MODE === "memory") return false;
+  if (process.env.IKADA_STORE_MODE === "file") return true;
+  // Cloudflare Pages/Workers have no persistent writable local filesystem.
+  if (process.env.CF_PAGES === "1" || process.env.CLOUDFLARE_WORKERS === "1") {
+    return false;
+  }
+  return true;
+}
+
+function mergeFileData(parsed: Partial<IkadaData>): IkadaData {
+  return {
+    ...cloneDefaultData(),
+    ...parsed,
+    settings: { ...defaultSettings, ...parsed.settings },
+    bookings: parsed.bookings ?? [],
+    blockedDates: parsed.blockedDates ?? [],
+    guideSpots: parsed.guideSpots ?? defaultData.guideSpots,
+    faqItems: parsed.faqItems ?? defaultData.faqItems,
+    houseInfo: parsed.houseInfo ?? defaultData.houseInfo,
+  };
+}
+
 async function readFileData(): Promise<IkadaData> {
+  if (!canUseFileStore()) {
+    return cloneDefaultData();
+  }
+
   const file = dataPath();
   try {
     const raw = await fs.readFile(file, "utf8");
     const parsed = JSON.parse(raw) as Partial<IkadaData>;
-    return {
-      ...cloneDefaultData(),
-      ...parsed,
-      settings: { ...defaultSettings, ...parsed.settings },
-      bookings: parsed.bookings ?? [],
-      blockedDates: parsed.blockedDates ?? [],
-      guideSpots: parsed.guideSpots ?? defaultData.guideSpots,
-      faqItems: parsed.faqItems ?? defaultData.faqItems,
-      houseInfo: parsed.houseInfo ?? defaultData.houseInfo,
-    };
+    return mergeFileData(parsed);
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
-      throw error;
-    }
     const fresh = cloneDefaultData();
-    await writeFileData(fresh);
-    return fresh;
+    try {
+      await writeFileData(fresh);
+      if (isFilesystemUnavailable(error)) {
+        return fresh;
+      }
+    } catch {
+      return fresh;
+    }
+    throw error;
   }
 }
 
 async function writeFileData(data: IkadaData) {
+  if (!canUseFileStore()) {
+    throw new Error(
+      "Local file storage is unavailable in this environment. Configure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.",
+    );
+  }
+
   const file = dataPath();
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, `${JSON.stringify(data, null, 2)}\n`, "utf8");
@@ -201,7 +237,9 @@ async function listSupabaseBlocks() {
 }
 
 export function getStoreMode() {
-  return hasSupabaseConfig() ? "supabase" : "local-file";
+  if (hasSupabaseConfig()) return "supabase";
+  if (canUseFileStore()) return "local-file";
+  return "memory";
 }
 
 export async function getDataSnapshot(): Promise<IkadaData> {

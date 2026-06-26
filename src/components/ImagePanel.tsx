@@ -19,12 +19,12 @@ export function ImagePanel({
   const roundedClass = rounded === "sm" ? "rounded-sm" : rounded === "none" ? "rounded-none" : "rounded-md";
 
   return (
-    <figure className={className}>
+    <figure>
       <div
         className={cx(
           "relative overflow-hidden bg-ink/10 shadow-soft",
           roundedClass,
-          !className?.includes("aspect") && "aspect-[4/3]",
+          className ?? "aspect-[4/3]",
         )}
       >
         <Image

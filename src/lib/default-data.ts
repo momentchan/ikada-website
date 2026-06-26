@@ -302,6 +302,156 @@ export const defaultGuideSpots: GuideSpot[] = [
     sortOrder: 55,
     updatedAt: now,
   },
+  {
+    id: "shiomi-cafe",
+    category: "cafe",
+    name: {
+      en: "Shiomi's Cafe",
+      ja: "潮見カフェ",
+    },
+    distance: {
+      en: "Sumiyo area; check map and hours",
+      ja: "住用エリア。地図と営業時間を確認してください。",
+    },
+    description: {
+      en: "A local cafe stop in the Sumiyo area — worth checking when you want a quiet break between drives.",
+      ja: "住用エリアのカフェ。ドライブの合間に、少し立ち寄りたい時の候補です。",
+    },
+    recommendation: {
+      en: "Hours can change seasonally. Check before you go.",
+      ja: "季節で営業時間が変わることがあります。出発前に確認を。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Shiomi%20Cafe%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 42,
+    updatedAt: now,
+  },
+  {
+    id: "ichida-shoten",
+    category: "shop",
+    name: {
+      en: "Ichida Shoten",
+      ja: "市田商店",
+    },
+    distance: {
+      en: "A few minutes on foot",
+      ja: "徒歩数分",
+    },
+    description: {
+      en: "The closest local shop — limited selection, but very near. Walk west down the main street.",
+      ja: "いちばん近い商店。品揃えは少なめですが、大通りを西へ徒歩数分です。",
+    },
+    recommendation: {
+      en: "Handy for basics when you do not want to drive.",
+      ja: "車を出さずにちょっと買い物をしたい時に便利です。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ichida%20Shoten%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 60,
+    updatedAt: now,
+  },
+  {
+    id: "shimanchu-mart",
+    category: "shop",
+    name: {
+      en: "ShimanchuMart",
+      ja: "シマンチュマート",
+    },
+    distance: {
+      en: "About 10 min by car",
+      ja: "車で約10分",
+    },
+    description: {
+      en: "A supermarket with more choice than the neighbourhood shop — a good stock-up stop close to IKADA.",
+      ja: "近所の商店より品揃えが多いスーパー。IKADA近くでの買い出しに便利です。",
+    },
+    recommendation: {
+      en: "Useful for a proper grocery run without driving all the way to Naze.",
+      ja: "名瀬まで出ずに、しっかり買い出しをしたい時に。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=ShimanchuMart%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 65,
+    updatedAt: now,
+  },
+  {
+    id: "sumiyo-gas",
+    category: "useful",
+    name: {
+      en: "Sumiyo Gas Station",
+      ja: "住用のガソリンスタンド",
+    },
+    distance: {
+      en: "About 5 min by car",
+      ja: "車で約5分",
+    },
+    description: {
+      en: "The nearest petrol stop for topping up between island drives.",
+      ja: "島内ドライブの合間に給油できる、いちばん近いスタンドです。",
+    },
+    recommendation: {
+      en: "Worth knowing before longer runs toward Naze or the south coast.",
+      ja: "名瀬方面や南部海岸へ長めに出る前に覚えておくと安心です。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=gas%20station%20Sumiyo%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 70,
+    updatedAt: now,
+  },
+  {
+    id: "sumiyo-clinic",
+    category: "useful",
+    name: {
+      en: "Municipal Sumiyo Medical Clinic",
+      ja: "住用町立医療センター",
+    },
+    distance: {
+      en: "Nishinakama, about 10 min by car",
+      ja: "西仲間、車で約10分",
+    },
+    description: {
+      en: "The nearest clinic for non-emergency medical needs in the Sumiyo area.",
+      ja: "住用エリアで、緊急以外の医療相談に使える最寄りのクリニックです。",
+    },
+    recommendation: {
+      en: "For emergencies, call 119. For serious issues, Oshima Hospital in Naze is the larger option.",
+      ja: "緊急時は119。より大きな対応が必要な場合は名瀬の大口病院を。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Sumiyo%20Medical%20Clinic%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 75,
+    updatedAt: now,
+  },
+  {
+    id: "oshima-hospital",
+    category: "useful",
+    name: {
+      en: "Kagoshima Prefectural Oshima Hospital",
+      ja: "鹿児島県立大口病院",
+    },
+    distance: {
+      en: "Naze, about 30-40 min by car",
+      ja: "名瀬、車で約30〜40分",
+    },
+    description: {
+      en: "The main hospital on Amami Oshima — the place to know for anything beyond a simple clinic visit.",
+      ja: "奄美大島の総合病院。クリニックでは対応しきれない時に知っておきたい場所です。",
+    },
+    recommendation: {
+      en: "Save the address before your stay. Emergency number in Japan is 119.",
+      ja: "滞在前に場所を確認しておくと安心です。緊急時の電話番号は119です。",
+    },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Oshima%20Hospital%20Naze%20Amami",
+    sourceUrl: "",
+    isPublished: true,
+    sortOrder: 80,
+    updatedAt: now,
+  },
 ];
 
 export const defaultFaqItems: FaqItem[] = [

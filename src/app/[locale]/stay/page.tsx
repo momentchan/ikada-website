@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SplitPageIntro } from "@/components/SplitPageIntro";
 import { isLocale, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -52,18 +53,12 @@ export default async function StayPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-shell py-20 sm:py-28">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-            <SectionHeading
-              eyebrow="IKADA"
-              title={copy.stay.title}
-              body={data.houseInfo.description[locale]}
-            />
-            <PhotoGrid images={housePhotos} layout="two" />
-          </div>
-        </Container>
-      </section>
+      <SplitPageIntro
+        eyebrow="IKADA"
+        title={copy.stay.title}
+        body={data.houseInfo.description[locale]}
+        media={<PhotoGrid images={housePhotos} layout="two" />}
+      />
 
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>

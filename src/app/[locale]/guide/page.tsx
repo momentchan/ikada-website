@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ExternalLink, MapPin } from "lucide-react";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
-import { SectionHeading } from "@/components/SectionHeading";
+import { SplitPageIntro } from "@/components/SplitPageIntro";
 import { isLocale, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -38,20 +37,22 @@ export default async function GuidePage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-shell py-20 sm:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
-          <SectionHeading eyebrow="AMAMI" title={copy.guide.title} body={copy.guide.intro} />
+      <SplitPageIntro
+        eyebrow="AMAMI"
+        title={copy.guide.title}
+        body={copy.guide.intro}
+        media={
           <ImagePanel
             src={siteConfig.images.gallery.island[0] ?? siteConfig.images.nature}
             alt="Amami Oshima landscape near IKADA"
-            className="aspect-[16/11]"
+            className="aspect-[4/3] sm:aspect-[16/11]"
             priority
             rounded="sm"
           />
-        </Container>
-      </section>
+        }
+      />
 
-      <section className="section-rule bg-paper py-20 sm:py-28">
+      <section className="section-rule bg-paper pb-16 pt-10 sm:pb-20 sm:pt-12">
         <Container className="grid gap-12 lg:grid-cols-[0.22fr_1fr]">
           <aside className="hidden lg:block">
             <nav className="sticky top-28 space-y-1">
@@ -71,23 +72,16 @@ export default async function GuidePage({ params }: Props) {
           </aside>
 
           <div className="space-y-16">
-            {publishedCategories.map((category, categoryIndex) => {
+            {publishedCategories.map((category) => {
               const items = spots.filter((spot) => spot.category === category);
-              const ambientImage =
-                siteConfig.images.gallery.island[categoryIndex % siteConfig.images.gallery.island.length];
 
               return (
                 <div key={category} id={`guide-${category}`} className="scroll-mt-28">
-                  <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-rust">
-                        {items.length} {locale === "ja" ? "件" : items.length === 1 ? "place" : "places"}
-                      </p>
-                      <h2 className="mt-2 font-display text-4xl font-bold">{copy.guide.categories[category]}</h2>
-                    </div>
-                    <div className="relative hidden h-20 w-32 overflow-hidden rounded-sm shadow-soft sm:block">
-                      <Image src={ambientImage} alt="" fill sizes="128px" className="object-cover" />
-                    </div>
+                  <div className="mb-6">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-rust">
+                      {items.length} {locale === "ja" ? "件" : items.length === 1 ? "place" : "places"}
+                    </p>
+                    <h2 className="mt-2 font-display text-4xl font-bold">{copy.guide.categories[category]}</h2>
                   </div>
                   <div className="grid gap-4 md:grid-cols-2">
                     {items.map((spot) => (

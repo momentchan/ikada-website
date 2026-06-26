@@ -107,6 +107,17 @@ function mergeHouseInfo(parsed?: Partial<HouseInfo>): HouseInfo {
   };
 }
 
+function mergeGuideSpots(parsed: GuideSpot[] | undefined): GuideSpot[] {
+  const defaults = defaultData.guideSpots;
+  if (!parsed?.length) return defaults;
+
+  const parsedById = new Map(parsed.map((spot) => [spot.id, spot]));
+  const merged = defaults.map((defaultSpot) => parsedById.get(defaultSpot.id) ?? defaultSpot);
+  const defaultIds = new Set(defaults.map((spot) => spot.id));
+  const extras = parsed.filter((spot) => !defaultIds.has(spot.id));
+  return [...merged, ...extras].sort((a, b) => a.sortOrder - b.sortOrder);
+}
+
 function mergeFileData(parsed: Partial<IkadaData>): IkadaData {
   return {
     ...cloneDefaultData(),
@@ -114,7 +125,7 @@ function mergeFileData(parsed: Partial<IkadaData>): IkadaData {
     settings: { ...defaultSettings, ...parsed.settings },
     bookings: parsed.bookings ?? [],
     blockedDates: parsed.blockedDates ?? [],
-    guideSpots: parsed.guideSpots ?? defaultData.guideSpots,
+    guideSpots: mergeGuideSpots(parsed.guideSpots),
     faqItems: parsed.faqItems ?? defaultData.faqItems,
     houseInfo: mergeHouseInfo(parsed.houseInfo),
   };

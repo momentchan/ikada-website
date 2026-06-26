@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Car, Download, MapPin, Navigation, ShoppingBag } from "lucide-react";
-import { ButtonLink } from "@/components/ButtonLink";
+import { Car, MapPin, Navigation, ShoppingBag } from "lucide-react";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
-import { SectionHeading } from "@/components/SectionHeading";
+import { SplitPageIntro } from "@/components/SplitPageIntro";
 import { isLocale, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -33,8 +32,11 @@ export default async function AccessPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-shell py-20 sm:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
+      <SplitPageIntro
+        eyebrow="SUMIYO"
+        title={copy.access.title}
+        body={copy.access.intro}
+        media={
           <ImagePanel
             src={siteConfig.images.access}
             alt="Road and landscape near IKADA in Sumiyo, Amami Oshima"
@@ -42,31 +44,17 @@ export default async function AccessPage({ params }: Props) {
             priority
             rounded="sm"
           />
-          <div>
-            <SectionHeading eyebrow="SUMIYO" title={copy.access.title} body={copy.access.intro} />
-            <div className="mt-6 surface-card-paper p-5 text-sm leading-7 text-ink/68">
-              <p className="font-bold text-ink">{locale === "ja" ? siteConfig.locationJa : siteConfig.location}</p>
-              <p className="mt-1">
-                {locale === "ja"
-                  ? "チェックイン詳細と駐車場所は予約確定後にご案内します。"
-                  : "Check-in details and exact parking notes are sent after confirmation."}
-              </p>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={`/api/access-guide?locale=${locale}`}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-shell/90 px-4 py-2 text-sm font-semibold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lift"
-              >
-                <Download aria-hidden="true" className="h-4 w-4" />
-                {locale === "ja" ? "アクセスガイドを保存" : "Download Access Guide"}
-              </a>
-              <ButtonLink locale={locale} href="/guide" variant="ghost" icon={MapPin}>
-                {copy.cta.area}
-              </ButtonLink>
-            </div>
-          </div>
-        </Container>
-      </section>
+        }
+      >
+        <div className="mt-6 surface-card-paper p-5 text-sm leading-7 text-ink/68">
+          <p className="font-bold text-ink">{locale === "ja" ? siteConfig.locationJa : siteConfig.location}</p>
+          <p className="mt-1">
+            {locale === "ja"
+              ? "チェックイン詳細と駐車場所は予約確定後にご案内します。"
+              : "Check-in details and exact parking notes are sent after confirmation."}
+          </p>
+        </div>
+      </SplitPageIntro>
 
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container className="grid gap-4 lg:grid-cols-4">

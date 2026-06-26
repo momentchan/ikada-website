@@ -13,7 +13,7 @@ export const siteConfig = {
   email: "ikada.amami@gmail.com",
   phone: "+81-000-0000-0000",
   images: {
-    logo: "/images/logo/Ikada LOGO tp.png",
+    logo: "/images/logo/logo.png",
     hero: "/images/house/IMG_20251128_142141.jpg",
     raft: "/images/raft/DSCF5737.JPG",
     newsClip: "/images/raft/news_small.png",

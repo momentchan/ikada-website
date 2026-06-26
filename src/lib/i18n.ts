@@ -64,7 +64,6 @@ export const dictionary = {
         eyebrow: "IN THE NEWS",
         title: "The raft crossed the strait — and made the local paper.",
         body: "Four friends built a raft from scrap wood, plastic floats, blue tarps, and rope, then set out from Setouchi to cross the Oshima Strait. Wind and currents changed the plan more than once. When a local newspaper ran the story, it was still just an adventure among friends — not a guest house brand. But that clipping is part of how the name IKADA stayed alive.",
-        caption: "Newspaper coverage of the waste-material raft crossing the Oshima Strait near Setouchi, Amami Oshima.",
       },
     },
     stay: {
@@ -197,7 +196,6 @@ export const dictionary = {
         eyebrow: "新聞に載った日",
         title: "廃材いかだで、大島海峡を横断した話。",
         body: "瀬戸内の海岸で集めた廃材、ブルーシート、ロープ。多国籍の友人たちと作った筏で、大島海峡への冒険に出ました。風や流れで予定は何度も変わりました。地元紙に載ったときも、まだゲストハウスの計画ではありませんでした。でもその記事は、IKADAという名前が残っていく理由のひとつです。",
-        caption: "瀬戸内町付近から大島海峡を横断した廃材いかだについての新聞記事。",
       },
     },
     stay: {

@@ -110,7 +110,7 @@ export default async function StoryPage({ params }: Props) {
       </section>
 
       <section className="section-rule bg-paper py-20 sm:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[0.88fr_1.12fr]">
+        <Container className="grid items-start gap-12 lg:grid-cols-[0.88fr_1.12fr]">
           <div>
             <SectionHeading
               eyebrow={copy.story.press.eyebrow}
@@ -118,22 +118,21 @@ export default async function StoryPage({ params }: Props) {
               body={copy.story.press.body}
             />
           </div>
-          <figure className="surface-card p-4 sm:p-6">
+          <figure>
             <Image
               src={siteConfig.images.newsClip}
-              alt={copy.story.press.caption}
+              alt={copy.story.press.title}
               width={1200}
               height={1600}
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="h-auto w-full rounded-sm object-contain"
             />
-            <figcaption className="mt-4 text-sm leading-7 text-ink/55">{copy.story.press.caption}</figcaption>
           </figure>
         </Container>
       </section>
 
       <section className="section-rule bg-shell py-20 sm:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+        <Container className="grid items-start gap-12 lg:grid-cols-[1.08fr_0.92fr]">
           <ImagePanel
             src={siteConfig.images.house}
             alt="IKADA house at night with garden lights"

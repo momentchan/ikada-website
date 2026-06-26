@@ -15,3 +15,11 @@ pnpm-debug.log*
 
 # Local media not deployed (originals, unused photos, raw video)
 media-archive/
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example

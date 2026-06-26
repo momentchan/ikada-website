@@ -61,7 +61,7 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="relative min-h-[88svh] overflow-hidden bg-ink text-shell">
+      <section className="relative h-svh min-h-svh overflow-hidden bg-ink text-shell">
         <video
           autoPlay
           loop
@@ -69,14 +69,15 @@ export default async function HomePage({ params }: Props) {
           playsInline
           preload="auto"
           poster={siteConfig.images.hero}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           aria-hidden="true"
         >
           <source src={siteConfig.video.hero} type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/42 to-ink/8" />
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/75 to-transparent" />
-        <Container className="relative flex min-h-[88svh] items-center py-16 sm:py-24">
+        <Container className="relative flex h-full items-center pb-16 pt-28 sm:pb-24 sm:pt-32">
           <div className="max-w-4xl">
             <p className="eyebrow-light mb-5 sm:text-sm">
               <span className="h-px w-10 bg-tide/70" />

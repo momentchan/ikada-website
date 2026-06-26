@@ -11,12 +11,15 @@ export function NavLinks({
   locale,
   className,
   linkClassName,
+  tone = "default",
 }: {
   locale: Locale;
   className?: string;
   linkClassName?: string;
+  tone?: "default" | "overlay";
 }) {
   const pathname = usePathname();
+  const overlay = tone === "overlay";
 
   return (
     <nav className={className}>
@@ -30,9 +33,13 @@ export function NavLinks({
             href={item.href}
             className={cx(
               "rounded-lg px-3 py-2 text-sm font-semibold transition",
-              isActive
-                ? "bg-ink/8 text-ink"
-                : "text-ink/68 hover:bg-shell/80 hover:text-ink",
+              overlay
+                ? isActive
+                  ? "bg-shell/15 text-shell"
+                  : "text-shell/75 hover:bg-shell/10 hover:text-shell"
+                : isActive
+                  ? "bg-ink/8 text-ink"
+                  : "text-ink/68 hover:bg-shell/80 hover:text-ink",
               linkClassName,
             )}
             aria-current={isActive ? "page" : undefined}

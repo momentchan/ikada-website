@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ExternalLink, MapPin, MapPinned } from "lucide-react";
-import { ButtonLink } from "@/components/ButtonLink";
+import { ExternalLink, MapPin } from "lucide-react";
 import { Container } from "@/components/Container";
-import { CtaBand } from "@/components/CtaBand";
 import { ImagePanel } from "@/components/ImagePanel";
 import { SectionHeading } from "@/components/SectionHeading";
 import { isLocale, t } from "@/lib/i18n";
@@ -125,27 +123,6 @@ export default async function GuidePage({ params }: Props) {
           </div>
         </Container>
       </section>
-
-      <section className="section-rule bg-shell py-12">
-        <Container className="flex flex-wrap items-center justify-between gap-4">
-          <p className="text-sm text-ink/65">
-            {locale === "ja" ? "IKADAへの行き方はアクセスページをご覧ください。" : "See the access page for directions to IKADA."}
-          </p>
-          <ButtonLink locale={locale} href="/access" variant="secondary" icon={MapPinned}>
-            {locale === "ja" ? "アクセス" : "Access"}
-          </ButtonLink>
-        </Container>
-      </section>
-
-      <CtaBand
-        locale={locale}
-        title={locale === "ja" ? "島の一日は、ここから始まる。" : "Start your island day from IKADA."}
-        body={
-          locale === "ja"
-            ? "滞在しながら、このガイドを参考に動いてみてください。"
-            : "Stay with us and use these notes as a starting point, not a schedule."
-        }
-      />
     </>
   );
 }

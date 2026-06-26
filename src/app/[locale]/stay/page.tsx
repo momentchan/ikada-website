@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Bed, CalendarDays, Car, Check, Clock, Flame, ShieldCheck, UtensilsCrossed, Waves, Wifi, X } from "lucide-react";
+import { Bed, Car, Check, Clock, Flame, FlameKindling, Projector, ShieldCheck, UtensilsCrossed, Waves, Wifi, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
-import { CtaBand } from "@/components/CtaBand";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { SectionHeading } from "@/components/SectionHeading";
 import { isLocale, t } from "@/lib/i18n";
@@ -22,6 +21,8 @@ const facilityIcons: Record<string, LucideIcon> = {
   parking: Car,
   sauna: Flame,
   rental: Waves,
+  bbq: FlameKindling,
+  cinema: Projector,
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -66,38 +67,38 @@ export default async function StayPage({ params }: Props) {
 
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>
-          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <SectionHeading
-              eyebrow={locale === "ja" ? "DETAILS" : "DETAILS"}
-              title={locale === "ja" ? "必要なことは、はっきり。" : "The practical bits, clearly."}
-              body={
-                locale === "ja"
-                  ? "写真だけでなく、泊まる前に知っておきたい情報をまとめています。"
-                  : "Less mystery, better trips. Here is what you need to know before booking."
-              }
-            />
-            <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
-              {locale === "ja" ? "空室を確認" : "Check Availability"}
-            </ButtonLink>
-          </div>
+          <SectionHeading
+            eyebrow={locale === "ja" ? "DETAILS" : "DETAILS"}
+            title={locale === "ja" ? "必要なことは、はっきり。" : "The practical bits, clearly."}
+            body={
+              locale === "ja"
+                ? "写真だけでなく、泊まる前に知っておきたい情報をまとめています。"
+                : "Less mystery, better trips. Here is what you need to know before booking."
+            }
+            className="mb-10"
+          />
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {data.houseInfo.facilities.map((facility) => {
               const Icon = facilityIcons[facility.key] ?? Bed;
               return (
                 <article key={facility.key} className="surface-card p-6">
-                  <Icon aria-hidden="true" className="h-5 w-5 text-rust" />
-                  <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-rust/80">{facility.label[locale]}</p>
-                  <h2 className="mt-2 font-display text-2xl font-bold leading-tight">{facility.value[locale]}</h2>
+                  <div className="flex items-center gap-2.5">
+                    <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-rust" />
+                    <p className="text-sm font-bold uppercase tracking-[0.14em] text-rust/80">{facility.label[locale]}</p>
+                  </div>
+                  <h2 className="mt-3 font-display text-2xl font-bold leading-tight">{facility.value[locale]}</h2>
                 </article>
               );
             })}
             <article className="surface-card-dark p-6">
-              <Clock aria-hidden="true" className="h-5 w-5 text-tide" />
-              <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-tide">
-                {locale === "ja" ? "チェックイン" : "Check-in / out"}
-              </p>
-              <h2 className="mt-2 font-display text-2xl font-bold">
+              <div className="flex items-center gap-2.5">
+                <Clock aria-hidden="true" className="h-5 w-5 shrink-0 text-tide" />
+                <p className="text-sm font-bold uppercase tracking-[0.14em] text-tide">
+                  {locale === "ja" ? "チェックイン" : "Check-in / out"}
+                </p>
+              </div>
+              <h2 className="mt-3 font-display text-2xl font-bold">
                 {data.settings.checkInTime} / {data.settings.checkOutTime}
               </h2>
             </article>
@@ -150,16 +151,6 @@ export default async function StayPage({ params }: Props) {
           </aside>
         </Container>
       </section>
-
-      <CtaBand
-        locale={locale}
-        title={locale === "ja" ? "島の拠点として、泊まってみる。" : "Stay at IKADA as your island base."}
-        body={
-          locale === "ja"
-            ? "日程が合えば、まずはリクエストをお送りください。"
-            : "If the dates look right, send a request and we will take it from there."
-        }
-      />
     </>
   );
 }

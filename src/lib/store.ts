@@ -11,6 +11,7 @@ import type {
   BookingRequest,
   BookingStatus,
   GuideSpot,
+  HouseInfo,
   HouseSettings,
   IkadaData,
   PaymentStatus,
@@ -67,6 +68,45 @@ function canUseFileStore() {
   return true;
 }
 
+function mergeFacilities(
+  parsed: HouseInfo["facilities"] | undefined,
+): HouseInfo["facilities"] {
+  const defaults = defaultData.houseInfo.facilities;
+  if (!parsed?.length) return defaults;
+
+  const parsedByKey = new Map(parsed.map((facility) => [facility.key, facility]));
+  const merged = defaults.map((defaultFacility) => {
+    const override = parsedByKey.get(defaultFacility.key);
+    if (!override) return defaultFacility;
+    return {
+      ...defaultFacility,
+      ...override,
+      label: { ...defaultFacility.label, ...override.label },
+      value: { ...defaultFacility.value, ...override.value },
+    };
+  });
+
+  const defaultKeys = new Set(defaults.map((facility) => facility.key));
+  const extras = parsed.filter((facility) => !defaultKeys.has(facility.key));
+  return [...merged, ...extras];
+}
+
+function mergeHouseInfo(parsed?: Partial<HouseInfo>): HouseInfo {
+  const defaults = defaultData.houseInfo;
+  if (!parsed) return defaults;
+
+  return {
+    ...defaults,
+    ...parsed,
+    headline: { ...defaults.headline, ...parsed.headline },
+    description: { ...defaults.description, ...parsed.description },
+    accessGuide: { ...defaults.accessGuide, ...parsed.accessGuide },
+    emergencyInfo: { ...defaults.emergencyInfo, ...parsed.emergencyInfo },
+    facilities: mergeFacilities(parsed.facilities),
+    rules: parsed.rules?.length ? parsed.rules : defaults.rules,
+  };
+}
+
 function mergeFileData(parsed: Partial<IkadaData>): IkadaData {
   return {
     ...cloneDefaultData(),
@@ -76,7 +116,7 @@ function mergeFileData(parsed: Partial<IkadaData>): IkadaData {
     blockedDates: parsed.blockedDates ?? [],
     guideSpots: parsed.guideSpots ?? defaultData.guideSpots,
     faqItems: parsed.faqItems ?? defaultData.faqItems,
-    houseInfo: parsed.houseInfo ?? defaultData.houseInfo,
+    houseInfo: mergeHouseInfo(parsed.houseInfo),
   };
 }
 

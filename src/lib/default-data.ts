@@ -10,7 +10,7 @@ export const defaultSettings: HouseSettings = {
   extraGuestFee: 3000,
   extraGuestThreshold: 2,
   weeklyDiscountPercent: 10,
-  maxGuests: 5,
+  maxGuests: 10,
   checkInTime: "15:00",
   checkOutTime: "10:00",
   minNights: 2,
@@ -346,7 +346,7 @@ export const defaultHouseInfo: HouseInfo = {
     {
       key: "guests",
       label: { en: "Guests", ja: "定員" },
-      value: { en: "Up to 5 guests", ja: "最大5名" },
+      value: { en: "Up to 10 guests", ja: "最大10名" },
     },
     {
       key: "beds",
@@ -377,6 +377,22 @@ export const defaultHouseInfo: HouseInfo = {
       key: "rental",
       label: { en: "On-site rental", ja: "レンタル" },
       value: { en: "Kayak, stand-up paddle, and scooter", ja: "カヤック、SUP、スクーター" },
+    },
+    {
+      key: "bbq",
+      label: { en: "BBQ", ja: "BBQ" },
+      value: {
+        en: "Outdoor grill for shared meals under the stars",
+        ja: "星空の下でみんなで食べるアウトドア用グリル",
+      },
+    },
+    {
+      key: "cinema",
+      label: { en: "Home cinema", ja: "ホームシネマ" },
+      value: {
+        en: "Projector and screen for slow rainy-night movies",
+        ja: "雨の夜にゆっくり映画を楽しめるプロジェクター",
+      },
     },
   ],
   rules: [

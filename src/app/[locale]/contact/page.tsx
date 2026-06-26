@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { CalendarDays, Mail, MapPin } from "lucide-react";
-import { ButtonLink } from "@/components/ButtonLink";
+import { Mail, MapPin } from "lucide-react";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { isLocale } from "@/lib/i18n";
@@ -47,11 +46,6 @@ export default async function ContactPage({ params }: Props) {
             <MapPin aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-rust" />
             {locale === "ja" ? siteConfig.locationJa : siteConfig.location}
           </p>
-        </div>
-        <div className="mt-8">
-          <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
-            {locale === "ja" ? "空室を確認" : "Check Availability"}
-          </ButtonLink>
         </div>
       </Container>
     </section>

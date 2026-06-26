@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CalendarDays } from "lucide-react";
-import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
 import { PageHero } from "@/components/PageHero";
@@ -152,11 +150,6 @@ export default async function StoryPage({ params }: Props) {
                   : "We did not build the house. But named for the raft story, it is our base on the island — a place to come back to after rain, roads, mangroves, beaches, and slow meals."
               }
             />
-            <div className="mt-8">
-              <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
-                {locale === "ja" ? "空室を確認" : "Check Availability"}
-              </ButtonLink>
-            </div>
           </div>
         </Container>
       </section>

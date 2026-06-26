@@ -1,16 +1,14 @@
 import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
 import { CtaBand } from "@/components/CtaBand";
+import { HideOnBooking } from "@/components/HideOnBooking";
 import { LocaleLink } from "@/components/LocaleLink";
+import { navItems } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
 import type { Locale } from "@/lib/types";
 
-const stayLinks = [
-  { href: "/stay", label: { en: "Stay", ja: "宿について" } },
-  { href: "/access", label: { en: "Access", ja: "アクセス" } },
-  { href: "/guide", label: { en: "Local Guide", ja: "周辺ガイド" } },
-  { href: "/guest-guide", label: { en: "Guest Guide", ja: "ゲストガイド" } },
-];
+const footerLinkClass =
+  "rounded-sm px-2 py-2 text-sm text-shell/72 transition hover:bg-shell/8 hover:text-shell";
 
 const policyLinks = [
   { href: "/house-rules", label: { en: "House Rules", ja: "ハウスルール" } },
@@ -24,15 +22,17 @@ const policyLinks = [
 export function SiteFooter({ locale }: { locale: Locale }) {
   return (
     <footer className="border-t border-ink/8">
-      <CtaBand
-        locale={locale}
-        title={locale === "ja" ? "ゆっくり流れる時間を、島で。" : "Ready to drift slowly?"}
-        body={
-          locale === "ja"
-            ? "日程が決まったら、まずリクエストを。空き状況を確認してから、お支払いのご案内をお送りします。"
-            : "Have dates in mind? Send a request first. We check availability, then send payment only if the stay works."
-        }
-      />
+      <HideOnBooking>
+        <CtaBand
+          locale={locale}
+          title={locale === "ja" ? "ゆっくり流れる時間を、島で。" : "Ready to drift slowly?"}
+          body={
+            locale === "ja"
+              ? "日程が決まったら、まずリクエストを。空き状況を確認してから、お支払いのご案内をお送りします。"
+              : "Have dates in mind? Send a request first. We check availability, then send payment only if the stay works."
+          }
+        />
+      </HideOnBooking>
       <div className="paper-grain bg-ink text-shell">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 sm:px-6 md:grid-cols-[1.1fr_1fr_1fr] lg:px-8">
           <div>
@@ -65,25 +65,25 @@ export function SiteFooter({ locale }: { locale: Locale }) {
 
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-shell/45">
-              {locale === "ja" ? "滞在" : "Stay"}
+              {locale === "ja" ? "サイト" : "Explore"}
             </p>
             <div className="mt-3 grid gap-1">
-              {stayLinks.map((link) => (
-                <LocaleLink
-                  key={link.href}
-                  locale={locale}
-                  href={link.href}
-                  className="rounded-sm px-2 py-2 text-sm text-shell/72 transition hover:bg-shell/8 hover:text-shell"
-                >
+              {navItems.map((link) => (
+                <LocaleLink key={link.href} locale={locale} href={link.href} className={footerLinkClass}>
                   {link.label[locale]}
                 </LocaleLink>
               ))}
-              <LocaleLink
-                locale={locale}
-                href="/contact"
-                className="rounded-sm px-2 py-2 text-sm text-shell/72 transition hover:bg-shell/8 hover:text-shell"
-              >
+              <LocaleLink locale={locale} href="/contact" className={footerLinkClass}>
                 {locale === "ja" ? "お問い合わせ" : "Contact"}
+              </LocaleLink>
+            </div>
+
+            <p className="mt-8 text-xs font-bold uppercase tracking-[0.16em] text-shell/45">
+              {locale === "ja" ? "ゲスト向け" : "For Guests"}
+            </p>
+            <div className="mt-3 grid gap-1">
+              <LocaleLink locale={locale} href="/guest-guide" className={footerLinkClass}>
+                {locale === "ja" ? "ゲストガイド" : "Guest Guide"}
               </LocaleLink>
             </div>
           </div>
@@ -94,12 +94,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             </p>
             <div className="mt-3 grid gap-1">
               {policyLinks.map((link) => (
-                <LocaleLink
-                  key={link.href}
-                  locale={locale}
-                  href={link.href}
-                  className="rounded-sm px-2 py-2 text-sm text-shell/72 transition hover:bg-shell/8 hover:text-shell"
-                >
+                <LocaleLink key={link.href} locale={locale} href={link.href} className={footerLinkClass}>
                   {link.label[locale]}
                 </LocaleLink>
               ))}

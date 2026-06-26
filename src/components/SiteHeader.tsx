@@ -60,7 +60,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             className="inline-flex min-h-10 items-center gap-2 rounded-sm bg-rust px-3 py-2 text-sm font-bold text-shell shadow-soft transition hover:-translate-y-0.5 hover:bg-wood"
           >
             <CalendarDays aria-hidden="true" className="h-4 w-4" />
-            <span className="hidden sm:inline">{copy.cta.availability}</span>
+            <span className="hidden sm:inline">{copy.cta.booking}</span>
             <span className="sm:hidden">{locale === "ja" ? "予約" : "Book"}</span>
           </LocaleLink>
         </div>

@@ -124,60 +124,38 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       <section className="section-rule bg-shell py-20 sm:py-28">
-        <Container className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <SectionHeading
-              eyebrow={locale === "ja" ? "STORY" : "THE RAFT"}
-              title={copy.story.title}
-              body={copy.story.intro}
-            />
-            <div className="mt-7">
-              <ButtonLink locale={locale} href="/story" variant="ghost" icon={Hammer}>
-                {copy.cta.story}
-              </ButtonLink>
-            </div>
-          </div>
-          <ImagePanel
-            src={siteConfig.images.raft}
-            alt="The handmade IKADA raft floating on Amami water"
-            className="aspect-[16/10]"
-            rounded="sm"
-          />
-        </Container>
-      </section>
-
-      <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>
           <SectionHeading
-            eyebrow={locale === "ja" ? "筏" : "THE RAFT"}
-            title={locale === "ja" ? "竹と廃材とロープで、筏を作った。" : "Bamboo, scrap wood, and rope — we built a raft."}
-            body={
-              locale === "ja"
-                ? "家ではなく、海に出るための筏です。友人と一緒に、使えるものを集めながら、少しずつ形にした記録です。"
-                : "Not the house — the raft we took to the water. Built with friends, gathering what was useful nearby and tying it together slowly."
-            }
+            eyebrow={locale === "ja" ? "STORY" : "THE RAFT"}
+            title={copy.story.title}
+            body={copy.story.intro}
             className="mb-10"
           />
           <PhotoGrid images={raftGallery} layout="three" />
+          <div className="mt-8">
+            <ButtonLink locale={locale} href="/story" variant="ghost" icon={Hammer}>
+              {copy.cta.story}
+            </ButtonLink>
+          </div>
         </Container>
       </section>
 
-      <section className="section-rule bg-shell py-20 sm:py-28">
-        <Container className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <article className="rounded-sm bg-ink p-8 text-shell shadow-lift lg:p-10">
-            <p className="eyebrow-light mb-4">
+      <section className="section-rule bg-shell pb-14 pt-8 sm:pb-20 sm:pt-10">
+        <Container className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-8">
+          <article className="rounded-sm bg-ink p-6 text-shell shadow-lift lg:p-8">
+            <p className="eyebrow-light mb-3">
               <span className="h-px w-8 bg-tide/70" />
               {locale === "ja" ? "STAY" : "STAY"}
             </p>
-            <h2 className="max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl">
+            <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
               {locale === "ja" ? "静かな家、よく曲がる道、予定を変える天気。" : "A quiet house, winding roads, and weather that edits your plans."}
             </h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-shell/75 sm:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-shell/75 sm:text-base">
               {locale === "ja"
                 ? "滞在の中心は、豪華な設備ではなく、島で過ごす時間そのもの。料理して、出かけて、戻って、眠る。その繰り返しが少し特別になる場所です。"
                 : "The stay is not about luxury amenities. It is about the rhythm: cook, drive, swim, wait out rain, return, sleep, and wake up with the island still close."}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <ButtonLink locale={locale} href="/stay" variant="secondary" icon={Leaf}>
                 {locale === "ja" ? "宿について" : "See The House"}
               </ButtonLink>
@@ -186,11 +164,11 @@ export default async function HomePage({ params }: Props) {
               </ButtonLink>
             </div>
           </article>
-          <div className="relative lg:-mr-8">
+          <div className="relative lg:-mr-6">
             <ImagePanel
               src={siteConfig.images.house}
               alt="IKADA house at night with garden lights"
-              className="aspect-[4/5] lg:aspect-[3/4]"
+              className="aspect-[4/5] lg:aspect-[5/6]"
               rounded="sm"
             />
           </div>
@@ -214,7 +192,7 @@ export default async function HomePage({ params }: Props) {
             </p>
             <div className="mt-7">
               <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
-                {copy.cta.availability}
+                {copy.cta.booking}
               </ButtonLink>
             </div>
           </article>

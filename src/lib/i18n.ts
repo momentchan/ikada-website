@@ -4,14 +4,13 @@ export const navItems = [
   { href: "/story", label: { en: "Story", ja: "ストーリー" } },
   { href: "/stay", label: { en: "Stay", ja: "宿について" } },
   { href: "/access", label: { en: "Access", ja: "アクセス" } },
-  { href: "/guide", label: { en: "Local Guide", ja: "周辺ガイド" } },
+  { href: "/guide", label: { en: "Guide", ja: "周辺" } },
 ] as const;
 
 export const dictionary = {
   en: {
     language: "English",
     cta: {
-      availability: "Check Availability",
       story: "Read Our Story",
       area: "Explore the Area",
       booking: "Request a Stay",
@@ -145,7 +144,6 @@ export const dictionary = {
   ja: {
     language: "日本語",
     cta: {
-      availability: "空室を確認",
       story: "ストーリーを読む",
       area: "周辺を見る",
       booking: "宿泊リクエスト",

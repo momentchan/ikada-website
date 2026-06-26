@@ -42,15 +42,7 @@ export default async function GuidePage({ params }: Props) {
     <>
       <section className="bg-shell py-20 sm:py-28">
         <Container className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
-          <SectionHeading
-            eyebrow="AMAMI"
-            title={copy.guide.title}
-            body={
-              locale === "ja"
-                ? "観光リストではなく、IKADAから動く日のための個人的なメモです。営業時間や天候は出発前に確認してください。"
-                : "Not a tourist checklist. A set of personal notes for days that start from IKADA. Check hours and weather before you go."
-            }
-          />
+          <SectionHeading eyebrow="AMAMI" title={copy.guide.title} body={copy.guide.intro} />
           <ImagePanel
             src={siteConfig.images.gallery.island[0] ?? siteConfig.images.nature}
             alt="Amami Oshima landscape near IKADA"

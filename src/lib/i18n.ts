@@ -5,7 +5,6 @@ export const navItems = [
   { href: "/stay", label: { en: "Stay", ja: "宿について" } },
   { href: "/access", label: { en: "Access", ja: "アクセス" } },
   { href: "/guide", label: { en: "Local Guide", ja: "周辺ガイド" } },
-  { href: "/booking", label: { en: "Booking", ja: "予約" } },
 ] as const;
 
 export const dictionary = {
@@ -91,7 +90,7 @@ export const dictionary = {
     access: {
       title: "Access",
       intro:
-        "IKADA is in the Sumiyo area of Amami Oshima — close to mangrove rivers, surf beaches, and waterfall hikes. A rental car is strongly recommended.",
+        "IKADA is in the Sumiyo area on the south side of Amami Oshima. Expect island roads and changing weather — a rental car is strongly recommended.",
       sections: [
         {
           title: "From Amami Airport",
@@ -106,15 +105,15 @@ export const dictionary = {
           body: "The address is 18 Yamma, Sumiyo-cho, Amami-shi, Kagoshima 894-1204. Parking details are sent after booking confirmation.",
         },
         {
-          title: "What's nearby",
-          body: "Mangrove rivers are just down the road. Surf beaches, local restaurants, and short waterfall hikes are within easy driving distance — without staying in busy Naze.",
+          title: "Stock up in Naze",
+          body: "Supermarkets, ATMs, and last-minute supplies are easier in Naze before the quieter Sumiyo stretch. For beaches, food, and day-trip ideas once you arrive, see the Local Guide.",
         },
       ],
     },
     guide: {
       title: "Local Guide",
       intro:
-        "Personal notes for days that start from IKADA — mangroves next door, surf beaches, waterfall hikes, and local food. Check hours and weather before you go.",
+        "Owner picks for food, beaches, nature, rainy days, and useful stops around IKADA. Check hours and weather before you go.",
       categories: {
         food: "Food",
         cafe: "Cafes",
@@ -225,7 +224,7 @@ export const dictionary = {
     access: {
       title: "アクセス",
       intro:
-        "IKADAは奄美大島の住用エリアにあります。マングローブ、サーフビーチ、滝ハイキングまで近い場所です。レンタカーを強くおすすめします。",
+        "IKADAは奄美大島南部の住用エリアにあります。島の道と天候を考えると、レンタカーを強くおすすめします。",
       sections: [
         {
           title: "奄美空港から",
@@ -240,15 +239,15 @@ export const dictionary = {
           body: "住所は〒894-1204 鹿児島県奄美市住用町大字山間18です。駐車場所の詳細は予約確定後にご案内します。",
         },
         {
-          title: "周辺の見どころ",
-          body: "マングローブはすぐそば。サーフビーチ、地元の食事処、短い滝ハイキングまで、名瀬のにぎわいから離れながら車で行けます。",
+          title: "名瀬で買い出し",
+          body: "スーパー、ATM、必要なものは静かな住用に入る前の名瀬周辺が便利です。到着後の海、食事、日帰りの行き先は周辺ガイドをご覧ください。",
         },
       ],
     },
     guide: {
       title: "周辺ガイド",
       intro:
-        "IKADAを起点に動く日のためのメモです。すぐそばのマングローブ、サーフビーチ、滝ハイキング、地元の食事処。営業時間と天候は出発前に確認してください。",
+        "IKADAを起点に動く日のための、オーナーのおすすめメモです。食事、海、自然、雨の日、便利な場所。営業時間と天候は出発前に確認してください。",
       categories: {
         food: "食事",
         cafe: "カフェ",

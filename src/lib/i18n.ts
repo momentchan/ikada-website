@@ -20,7 +20,7 @@ export const dictionary = {
     },
     home: {
       eyebrow: "Sumiyo, Amami Oshima",
-      heroTitle: "First a raft. Then a guest house.",
+      heroTitle: "From raft to house.",
       headline: "A small island guest house in Amami, named for a raft.",
       intro:
         "IKADA means raft. It began with bamboo, scrap wood, blue tarps, rope, and a few friends on the water. The guest house carries that spirit — a quiet base for slow days on the island.",
@@ -154,7 +154,7 @@ export const dictionary = {
     },
     home: {
       eyebrow: "奄美大島・住用",
-      heroTitle: "最初は筏。それから、宿。",
+      heroTitle: "筏から、家へ。",
       headline: "筏の名を持つ、奄美の小さなゲストハウス。",
       intro:
         "IKADAは「筏」。竹、廃材、ブルーシート、ロープ、友人たちと海に出た話から始まりました。この宿は、その精神を受け継ぐ、島でゆっくり過ごすための拠点です。",

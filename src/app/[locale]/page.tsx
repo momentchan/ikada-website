@@ -86,11 +86,6 @@ export default async function HomePage({ params }: Props) {
             <h1 className="display-hero max-w-4xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
               {copy.home.heroTitle}
             </h1>
-            <div className="mt-9">
-              <ButtonLink locale={locale} href="/booking" icon={CalendarDays}>
-                {copy.cta.availability}
-              </ButtonLink>
-            </div>
           </div>
         </Container>
         <div className="absolute bottom-5 right-6 hidden text-shell/40 md:block" aria-hidden="true">

@@ -3,11 +3,13 @@ import "@/app/globals.css";
 import { fontDisplay, fontSans, fontSansJa } from "@/lib/fonts";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 
+const siteTitle = siteConfig.title;
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: "IKADA Amami",
-    template: "%s | IKADA Amami",
+    default: siteTitle,
+    template: `${siteTitle} | %s`,
   },
   description: "A small island guest house in Sumiyo, Amami Oshima.",
   openGraph: {

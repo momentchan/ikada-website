@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { Locale } from "@/lib/types";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 
+const siteTitle = siteConfig.title;
+
 const keywords = [
   "Amami guest house",
   "Amami Airbnb",
@@ -29,10 +31,12 @@ export function buildMetadata({
   const siteUrl = getSiteUrl();
   const pathname = `/${locale}${path === "/" ? "" : path}`;
   const url = `${siteUrl}${pathname}`;
+  const pageTitle = path === "/" ? { absolute: siteTitle } : title;
+  const fullTitle = path === "/" ? siteTitle : `${siteTitle} | ${title}`;
 
   return {
     metadataBase: new URL(siteUrl),
-    title: `${title} | IKADA Amami`,
+    title: pageTitle,
     description,
     keywords,
     alternates: {
@@ -43,7 +47,7 @@ export function buildMetadata({
       },
     },
     openGraph: {
-      title: `${title} | IKADA Amami`,
+      title: fullTitle,
       description,
       url,
       siteName: siteConfig.name,
@@ -60,7 +64,7 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | IKADA Amami`,
+      title: fullTitle,
       description,
       images: [siteConfig.images.hero],
     },

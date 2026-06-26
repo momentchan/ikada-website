@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/types";
 
 export const siteConfig = {
   name: "IKADA",
+  title: "IKADA Amami",
   tagline: {
     en: "Amami Oshima",
     ja: "奄美大島",

@@ -52,7 +52,7 @@ export default async function StoryPage({ params }: Props) {
         body={copy.story.intro}
         image={siteConfig.images.raft}
         imageAlt="The handmade IKADA raft floating on Amami water"
-        compact
+        fullScreen
       />
 
       <section className="section-rule bg-paper py-20 sm:py-28">

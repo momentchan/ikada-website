@@ -16,12 +16,14 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const copy = t(locale);
   const pathname = usePathname();
   const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const isHeroOverlay =
+    isHome || pathname === `/${locale}/story` || pathname.startsWith(`/${locale}/story/`);
 
   return (
     <header
       className={cx(
         "top-0 z-50 w-full",
-        isHome
+        isHeroOverlay
           ? "fixed border-b border-shell/10 bg-ink/20 backdrop-blur-md"
           : "sticky border-b border-ink/8 bg-paper/92 backdrop-blur-xl",
       )}
@@ -36,24 +38,24 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               sizes="80px"
               className={cx(
                 "object-contain",
-                isHome ? "mix-blend-difference" : "invert mix-blend-multiply",
+                isHeroOverlay ? "mix-blend-difference" : "invert mix-blend-multiply",
               )}
             />
           </span>
           <span
             className={cx(
               "hidden text-[11px] font-bold uppercase tracking-[0.18em] sm:block",
-              isHome ? "text-shell/55" : "text-ink/45",
+              isHeroOverlay ? "text-shell/55" : "text-ink/45",
             )}
           >
             {siteConfig.tagline[locale]}
           </span>
         </Link>
 
-        <NavLinks locale={locale} className="hidden items-center gap-0.5 md:flex" tone={isHome ? "overlay" : "default"} />
+        <NavLinks locale={locale} className="hidden items-center gap-0.5 md:flex" tone={isHeroOverlay ? "overlay" : "default"} />
 
         <div className="flex items-center gap-2">
-          <LanguageSwitcher locale={locale} tone={isHome ? "overlay" : "default"} />
+          <LanguageSwitcher locale={locale} tone={isHeroOverlay ? "overlay" : "default"} />
           <LocaleLink
             locale={locale}
             href="/booking"
@@ -70,10 +72,10 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         locale={locale}
         className={cx(
           "flex gap-0.5 overflow-x-auto px-4 py-2 md:hidden",
-          isHome ? "border-t border-shell/10" : "border-t border-ink/8",
+          isHeroOverlay ? "border-t border-shell/10" : "border-t border-ink/8",
         )}
         linkClassName="whitespace-nowrap text-xs"
-        tone={isHome ? "overlay" : "default"}
+        tone={isHeroOverlay ? "overlay" : "default"}
       />
     </header>
   );

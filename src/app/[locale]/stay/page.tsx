@@ -3,7 +3,7 @@ import { Bed, Car, Check, Clock, Flame, FlameKindling, Projector, ShieldCheck, U
 import type { LucideIcon } from "lucide-react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
-import { PhotoGrid } from "@/components/PhotoGrid";
+import { ImagePanel } from "@/components/ImagePanel";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SplitPageIntro } from "@/components/SplitPageIntro";
 import { isLocale, t } from "@/lib/i18n";
@@ -46,18 +46,21 @@ export default async function StayPage({ params }: Props) {
   const copy = t(locale);
   const data = await getDataSnapshot();
 
-  const housePhotos = siteConfig.images.gallery.houseLife.slice(0, 2).map((src, index) => ({
-    src,
-    alt: locale === "ja" ? `IKADAの家 ${index + 1}` : `IKADA house, photo ${index + 1}`,
-  }));
-
   return (
     <>
       <SplitPageIntro
         eyebrow="IKADA"
         title={copy.stay.title}
         body={data.houseInfo.description[locale]}
-        media={<PhotoGrid images={housePhotos} layout="two" />}
+        media={
+          <ImagePanel
+            src={siteConfig.images.house}
+            alt="IKADA house at night with garden lights"
+            className="aspect-[4/3] sm:aspect-[16/11]"
+            priority
+            rounded="sm"
+          />
+        }
       />
 
       <section className="section-rule bg-paper py-20 sm:py-28">

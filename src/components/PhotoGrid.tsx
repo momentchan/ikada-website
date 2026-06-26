@@ -53,9 +53,8 @@ export function PhotoGrid({
 
 function PhotoCell({ image, className }: { image: PhotoGridItem; className?: string }) {
   return (
-    <div className={cx("relative overflow-hidden rounded-sm bg-ink/10 shadow-soft ring-1 ring-ink/8", className)}>
+    <div className={cx("relative overflow-hidden rounded-sm bg-ink/10 shadow-soft", className)}>
       <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
-      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/15" />
     </div>
   );
 }

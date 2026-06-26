@@ -95,13 +95,13 @@ export default async function GuidePage({ params }: Props) {
                       </p>
                       <h2 className="mt-2 font-display text-4xl font-bold">{copy.guide.categories[category]}</h2>
                     </div>
-                    <div className="relative hidden h-20 w-32 overflow-hidden rounded-sm ring-1 ring-ink/8 sm:block">
+                    <div className="relative hidden h-20 w-32 overflow-hidden rounded-sm shadow-soft sm:block">
                       <Image src={ambientImage} alt="" fill sizes="128px" className="object-cover" />
                     </div>
                   </div>
                   <div className="grid gap-4 md:grid-cols-2">
                     {items.map((spot) => (
-                      <article key={spot.id} className="rounded-sm border border-ink/8 bg-shell/85 p-6 shadow-sm">
+                      <article key={spot.id} className="surface-card p-6">
                         <div className="flex items-start justify-between gap-4">
                           <div>
                             <h3 className="font-display text-2xl font-bold leading-tight">{spot.name[locale]}</h3>
@@ -114,7 +114,7 @@ export default async function GuidePage({ params }: Props) {
                             href={spot.mapUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-ink/10 bg-paper text-ink/65 transition hover:border-ink/25 hover:text-ink"
+                            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-paper text-ink/65 shadow-soft transition hover:text-ink"
                             aria-label={`${spot.name[locale]} map`}
                           >
                             <ExternalLink aria-hidden="true" className="h-4 w-4" />

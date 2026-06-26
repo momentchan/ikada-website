@@ -10,7 +10,7 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
   const withoutLocale = pathname.replace(/^\/(en|ja)/, "") || "";
 
   return (
-    <div className="inline-flex rounded-lg border border-ink/15 bg-shell/75 p-1 text-xs font-semibold">
+    <div className="inline-flex rounded-lg bg-shell/75 p-1 text-xs font-semibold shadow-soft">
       {(["en", "ja"] as const).map((item) => (
         <Link
           key={item}

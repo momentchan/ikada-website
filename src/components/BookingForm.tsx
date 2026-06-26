@@ -68,11 +68,11 @@ export function BookingForm({
   }
 
   const fieldClass =
-    "min-h-12 rounded-sm border border-ink/12 bg-white px-3 text-ink transition focus:border-wood";
+    "min-h-12 rounded-sm border border-bone/80 bg-white px-3 text-ink transition focus-visible:border-wood focus-visible:outline focus-visible:outline-2 focus-visible:outline-wood/20";
   const labelClass = "grid gap-2 text-sm font-bold text-ink/72";
 
   return (
-    <form onSubmit={onSubmit} className="rounded-sm border border-ink/8 bg-shell p-6 shadow-lift sm:p-7">
+    <form onSubmit={onSubmit} className="surface-card p-6 sm:p-7">
       <div className="mb-6 border-b border-ink/8 pb-6">
         <p className="eyebrow mb-2">
           <span className="h-px w-8 bg-rust/60" />
@@ -147,7 +147,7 @@ export function BookingForm({
           <textarea
             name="message"
             rows={5}
-            className="rounded-sm border border-ink/12 bg-white px-3 py-3 text-ink transition focus:border-wood"
+            className="rounded-sm border border-bone/80 bg-white px-3 py-3 text-ink transition focus-visible:border-wood focus-visible:outline focus-visible:outline-2 focus-visible:outline-wood/20"
           />
         </label>
       </div>
@@ -169,7 +169,7 @@ export function BookingForm({
       ) : null}
 
       <label className="mt-5 flex gap-3 text-sm leading-6 text-ink/72">
-        <input required type="checkbox" name="acceptedRules" value="true" className="mt-1 h-4 w-4 rounded border-ink/20" />
+        <input required type="checkbox" name="acceptedRules" value="true" className="mt-1 h-4 w-4 rounded border-bone/80 text-rust focus-visible:outline focus-visible:outline-2 focus-visible:outline-wood/20" />
         <span>
           {locale === "ja" ? (
             <>

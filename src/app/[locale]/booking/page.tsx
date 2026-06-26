@@ -75,7 +75,7 @@ export default async function BookingPage({ params }: Props) {
                 const Icon = step.icon;
                 return (
                   <li key={step.title} className="relative pb-8 last:pb-0">
-                    <span className="absolute -left-[1.85rem] flex h-8 w-8 items-center justify-center rounded-full border border-ink/12 bg-shell text-rust">
+                    <span className="absolute -left-[1.85rem] flex h-8 w-8 items-center justify-center rounded-full bg-shell text-rust shadow-soft">
                       <Icon aria-hidden="true" className="h-4 w-4" />
                     </span>
                     <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/38">0{index + 1}</p>
@@ -86,7 +86,7 @@ export default async function BookingPage({ params }: Props) {
               })}
             </ol>
             <div className="mt-6 space-y-3">
-              <div className="rounded-sm border border-sea/15 bg-sea/8 p-5">
+              <div className="rounded-sm bg-sea/8 p-5 shadow-soft">
                 <ShieldCheck aria-hidden="true" className="h-5 w-5 text-sea" />
                 <p className="mt-3 text-sm leading-7 text-ink/68">
                   {locale === "ja"

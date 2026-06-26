@@ -15,7 +15,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     <header className="sticky top-0 z-40 border-b border-ink/8 bg-paper/92 backdrop-blur-xl">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-3 px-5 sm:min-h-18 sm:px-6 lg:px-8">
         <Link href={`/${locale}`} className="inline-flex shrink-0 items-center gap-3">
-          <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm bg-ink text-shell ring-1 ring-ink/12">
+          <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm bg-ink text-shell shadow-soft">
             <Image
               src={siteConfig.images.logo}
               alt=""

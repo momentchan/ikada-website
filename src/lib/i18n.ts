@@ -21,9 +21,9 @@ export const dictionary = {
     },
     home: {
       eyebrow: "Sumiyo, Amami Oshima",
-      headline: "A small island house in Amami, built from the spirit of drifting.",
+      headline: "A small island guest house in Amami, named for a raft.",
       intro:
-        "IKADA means raft. It began with bamboo, scrap wood, blue tarps, rope, a few friends, and the mildly unreasonable belief that drifting slowly could become a way of staying.",
+        "IKADA means raft. It began with bamboo, scrap wood, blue tarps, rope, and a few friends on the water. The guest house carries that spirit — a quiet base for slow days on the island.",
       points: [
         {
           title: "Simple island house",
@@ -49,7 +49,7 @@ export const dictionary = {
           body: "We came to Amami looking for a slower way to travel: less itinerary, more tide table; fewer perfect plans, more friends standing around a pile of materials saying, surely this floats.",
         },
         {
-          title: "How we built it",
+          title: "How we built the raft",
           body: "The raft was bamboo, scrap wood, blue tarps, rope, and random useful things that had not yet been told they were useless. It was not elegant. It was ours.",
         },
         {
@@ -58,9 +58,15 @@ export const dictionary = {
         },
         {
           title: "Why IKADA",
-          body: "IKADA means raft. The house is an extension of that first object: a handmade base, not a performance of luxury. A place to arrive, dry off, cook something simple, and decide what tomorrow might be.",
+          body: "IKADA means raft. The guest house is named for that first object: not a performance of luxury, but a place to arrive, dry off, cook something simple, and decide what tomorrow might be.",
         },
       ],
+      press: {
+        eyebrow: "IN THE NEWS",
+        title: "The raft crossed the strait — and made the local paper.",
+        body: "Four friends built a raft from scrap wood, plastic floats, blue tarps, and rope, then set out from Setouchi to cross the Oshima Strait. Wind and currents changed the plan more than once. When a local newspaper ran the story, it was still just an adventure among friends — not a guest house brand. But that clipping is part of how the name IKADA stayed alive.",
+        caption: "Newspaper coverage of the waste-material raft crossing the Oshima Strait near Setouchi, Amami Oshima.",
+      },
     },
     stay: {
       title: "Stay At IKADA",
@@ -146,9 +152,9 @@ export const dictionary = {
     },
     home: {
       eyebrow: "奄美大島・住用",
-      headline: "漂うことから生まれた、奄美の小さな島の家。",
+      headline: "筏の名を持つ、奄美の小さなゲストハウス。",
       intro:
-        "IKADAは「筏」。竹、廃材、ブルーシート、ロープ、友人たち、そして少し無茶な楽観から始まった小さな旅の続きです。",
+        "IKADAは「筏」。竹、廃材、ブルーシート、ロープ、友人たちと海に出た話から始まりました。この宿は、その精神を受け継ぐ、島でゆっくり過ごすための拠点です。",
       points: [
         {
           title: "素朴な島の一軒家",
@@ -174,7 +180,7 @@ export const dictionary = {
           body: "奄美に来たのは、もっと遅い旅をしたかったから。予定表より潮、完璧な計画より「これ、たぶん浮くよね」と材料の前で話す時間。",
         },
         {
-          title: "作ったもの",
+          title: "筏を作った",
           body: "筏は竹、廃材、ブルーシート、ロープ、そしてまだ役に立つと言い張れるものたちでできていました。美しくはない。でも自分たちのものでした。",
         },
         {
@@ -183,9 +189,15 @@ export const dictionary = {
         },
         {
           title: "なぜIKADAなのか",
-          body: "IKADAは筏。この家は、あの最初の物体の続きです。豪華さを演じる場所ではなく、帰ってきて、乾いて、簡単なごはんを作り、明日を決めるための手作りの拠点です。",
+          body: "IKADAは筏。この宿は、あの最初の物体の名を受け継いでいます。豪華さを演じる場所ではなく、帰ってきて、乾いて、簡単なごはんを作り、明日を決めるための拠点です。",
         },
       ],
+      press: {
+        eyebrow: "新聞に載った日",
+        title: "廃材いかだで、大島海峡を横断した話。",
+        body: "瀬戸内の海岸で集めた廃材、ブルーシート、ロープ。多国籍の友人たちと作った筏で、大島海峡への冒険に出ました。風や流れで予定は何度も変わりました。地元紙に載ったときも、まだゲストハウスの計画ではありませんでした。でもその記事は、IKADAという名前が残っていく理由のひとつです。",
+        caption: "瀬戸内町付近から大島海峡を横断した廃材いかだについての新聞記事。",
+      },
     },
     stay: {
       title: "IKADAに泊まる",

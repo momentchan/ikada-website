@@ -77,7 +77,7 @@ export default async function GuestGuidePage({ params }: Props) {
           {items.map((item) => {
             const Icon = item.icon;
             return (
-              <article key={item.title} className="rounded-lg border border-ink/10 bg-shell p-5">
+              <article key={item.title} className="surface-card p-5">
                 <Icon aria-hidden="true" className="h-6 w-6 text-rust" />
                 <h2 className="mt-4 font-display text-2xl font-bold">{item.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-ink/72">{item.body}</p>

@@ -61,6 +61,14 @@ select {
   box-shadow: inset 0 1px 0 rgb(31 42 37 / 0.04);
 }
 
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: #936542;
+  outline: 2px solid rgb(147 101 66 / 0.22);
+  outline-offset: 1px;
+}
+
 @layer utilities {
   .paper-grain {
     background-image:
@@ -86,6 +94,18 @@ select {
 
   .prose-width {
     @apply max-w-2xl text-pretty leading-8 text-ink/72;
+  }
+
+  .surface-card {
+    @apply rounded-sm bg-shell/80 shadow-soft;
+  }
+
+  .surface-card-dark {
+    @apply rounded-sm bg-ink text-shell shadow-soft;
+  }
+
+  .surface-card-paper {
+    @apply rounded-sm bg-paper shadow-soft;
   }
 }
 

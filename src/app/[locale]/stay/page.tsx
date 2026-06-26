@@ -83,14 +83,14 @@ export default async function StayPage({ params }: Props) {
             {data.houseInfo.facilities.map((facility) => {
               const Icon = facilityIcons[facility.key] ?? Bed;
               return (
-                <article key={facility.key} className="rounded-sm border border-ink/8 bg-shell/85 p-6 shadow-sm">
+                <article key={facility.key} className="surface-card p-6">
                   <Icon aria-hidden="true" className="h-5 w-5 text-rust" />
                   <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-rust/80">{facility.label[locale]}</p>
                   <h2 className="mt-2 font-display text-2xl font-bold leading-tight">{facility.value[locale]}</h2>
                 </article>
               );
             })}
-            <article className="rounded-sm border border-ink/8 bg-ink p-6 text-shell shadow-soft">
+            <article className="surface-card-dark p-6">
               <Clock aria-hidden="true" className="h-5 w-5 text-tide" />
               <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-tide">
                 {locale === "ja" ? "チェックイン" : "Check-in / out"}
@@ -105,7 +105,7 @@ export default async function StayPage({ params }: Props) {
 
       <section className="section-rule bg-shell py-20 sm:py-28">
         <Container className="grid gap-6 lg:grid-cols-[1fr_1fr_0.82fr]">
-          <div className="rounded-sm border border-moss/15 bg-moss/8 p-7">
+          <div className="rounded-sm bg-moss/8 p-7 shadow-soft">
             <h2 className="font-display text-3xl font-bold">{copy.stay.goodFor}</h2>
             <ul className="mt-5 space-y-3">
               {copy.stay.goodItems.map((item) => (
@@ -116,7 +116,7 @@ export default async function StayPage({ params }: Props) {
               ))}
             </ul>
           </div>
-          <div className="rounded-sm border border-rust/15 bg-rust/8 p-7">
+          <div className="rounded-sm bg-rust/8 p-7 shadow-soft">
             <h2 className="font-display text-3xl font-bold">{copy.stay.notFor}</h2>
             <ul className="mt-5 space-y-3">
               {copy.stay.notItems.map((item) => (
@@ -127,7 +127,7 @@ export default async function StayPage({ params }: Props) {
               ))}
             </ul>
           </div>
-          <aside className="rounded-sm border border-ink/8 bg-paper p-7 shadow-sm">
+          <aside className="surface-card-paper p-7">
             <ShieldCheck aria-hidden="true" className="h-7 w-7 text-sea" />
             <h2 className="mt-4 font-display text-3xl font-bold">
               {locale === "ja" ? "予約前の安心" : "Before you book"}

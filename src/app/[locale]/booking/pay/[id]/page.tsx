@@ -40,7 +40,7 @@ export default async function PayPage({ params }: Props) {
               : "Review the stay details and continue to secure card payment."
           }
         />
-        <div className="mt-8 rounded-lg border border-ink/10 bg-shell p-5">
+        <div className="mt-8 surface-card p-5">
           <dl className="grid gap-4 sm:grid-cols-2">
             <div>
               <dt className="text-sm font-bold text-ink/55">{locale === "ja" ? "日程" : "Dates"}</dt>

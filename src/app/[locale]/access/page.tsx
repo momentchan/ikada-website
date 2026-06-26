@@ -44,7 +44,7 @@ export default async function AccessPage({ params }: Props) {
           />
           <div>
             <SectionHeading eyebrow="SUMIYO" title={copy.access.title} body={copy.access.intro} />
-            <div className="mt-6 rounded-sm border border-ink/8 bg-paper p-5 text-sm leading-7 text-ink/68">
+            <div className="mt-6 surface-card-paper p-5 text-sm leading-7 text-ink/68">
               <p className="font-bold text-ink">{locale === "ja" ? siteConfig.locationJa : siteConfig.location}</p>
               <p className="mt-1">
                 {locale === "ja"
@@ -55,7 +55,7 @@ export default async function AccessPage({ params }: Props) {
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href={`/api/access-guide?locale=${locale}`}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-ink/15 bg-shell/90 px-4 py-2 text-sm font-semibold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ink/30 hover:bg-white"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-shell/90 px-4 py-2 text-sm font-semibold text-ink shadow-soft transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lift"
               >
                 <Download aria-hidden="true" className="h-4 w-4" />
                 {locale === "ja" ? "アクセスガイドを保存" : "Download Access Guide"}
@@ -73,7 +73,7 @@ export default async function AccessPage({ params }: Props) {
           {copy.access.sections.map((section, index) => {
             const Icon = [Navigation, Car, MapPin, ShoppingBasket][index] ?? Car;
             return (
-              <article key={section.title} className="rounded-sm border border-ink/8 bg-shell/85 p-6 shadow-sm">
+              <article key={section.title} className="surface-card p-6">
                 <Icon aria-hidden="true" className="h-5 w-5 text-rust" />
                 <h2 className="mt-4 font-display text-2xl font-bold leading-tight">{section.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-ink/65">{section.body}</p>
@@ -85,7 +85,7 @@ export default async function AccessPage({ params }: Props) {
 
       <section className="section-rule bg-shell py-20 sm:py-28">
         <Container>
-          <div className="overflow-hidden rounded-sm border border-ink/8 bg-paper shadow-soft">
+          <div className="overflow-hidden surface-card-paper">
             <div className="border-b border-ink/8 px-5 py-4">
               <h2 className="font-display text-3xl font-bold">
                 {locale === "ja" ? "地図" : "Map"}

@@ -36,7 +36,7 @@ export default async function ContactPage({ params }: Props) {
               : "Questions before booking, stay details, and media inquiries can start here."
           }
         />
-        <div className="mt-10 rounded-sm border border-ink/8 bg-shell p-7 shadow-sm">
+        <div className="mt-10 surface-card-paper p-7">
           <p className="flex items-center gap-3">
             <Mail aria-hidden="true" className="h-5 w-5 text-rust" />
             <a href={`mailto:${siteConfig.email}`} className="font-semibold text-sea underline-offset-4 hover:underline">

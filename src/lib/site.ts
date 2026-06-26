@@ -16,6 +16,7 @@ export const siteConfig = {
     logo: "/images/logo/Ikada LOGO tp.png",
     hero: "/images/house/IMG_20251128_142141.jpg",
     raft: "/images/raft/DSCF5737.JPG",
+    newsClip: "/images/raft/news_small.png",
     house: "/images/house/PXL_20260218_135513506.jpg",
     nature: "/images/raft/DJI_0671.JPG",
     access: "/images/raft/DJI_0624.JPG",
@@ -43,6 +44,9 @@ export const siteConfig = {
         "/images/raft/PXL_20260427_063138489.jpg",
       ],
     },
+  },
+  video: {
+    hero: "/video/House-720p.mp4",
   },
 };
 

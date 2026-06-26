@@ -35,6 +35,9 @@ const config: Config = {
         ],
         display: ["var(--font-display)", "Georgia", "serif"],
       },
+      ringColor: {
+        DEFAULT: "rgb(31 42 37 / 0.12)",
+      },
       boxShadow: {
         soft: "0 18px 60px rgb(31 42 37 / 0.1)",
         lift: "0 24px 70px rgb(31 42 37 / 0.15)",

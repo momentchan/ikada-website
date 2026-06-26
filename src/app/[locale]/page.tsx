@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CalendarDays, ChevronDown, Compass, Hammer, Leaf, MapPinned, Waves } from "lucide-react";
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -68,14 +67,18 @@ export default async function HomePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <section className="relative min-h-[88svh] overflow-hidden bg-ink text-shell">
-        <Image
-          src={siteConfig.images.hero}
-          alt="A modest island house in Amami Oshima with handmade raft materials"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={siteConfig.images.hero}
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden="true"
+        >
+          <source src={siteConfig.video.hero} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/42 to-ink/8" />
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/75 to-transparent" />
         <Container className="relative flex min-h-[88svh] items-center py-16 sm:py-24">
@@ -85,7 +88,7 @@ export default async function HomePage({ params }: Props) {
               {copy.home.eyebrow}
             </p>
             <h1 className="display-hero max-w-4xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
-              {locale === "ja" ? "ひどい思いつきから生まれた、島の小さな家。" : "A small island house built from a terrible idea."}
+              {locale === "ja" ? "奄美大島の、小さなゲストハウス。" : "A small guest house on Amami Oshima."}
             </h1>
             <p className="mt-6 max-w-2xl text-balance font-display text-xl font-semibold leading-tight text-shell/90 sm:text-3xl lg:text-4xl">
               {locale === "ja" ? "ゲストハウスの前に、筏がありました。" : "Before there was a guest house, there was a raft."}
@@ -111,7 +114,7 @@ export default async function HomePage({ params }: Props) {
             {materials.map((material) => (
               <span
                 key={material}
-                className="rounded-full border border-shell/20 bg-shell/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-shell/70 backdrop-blur-sm"
+                className="rounded-full bg-shell/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-shell/70 backdrop-blur-sm"
               >
                 {material}
               </span>
@@ -139,7 +142,7 @@ export default async function HomePage({ params }: Props) {
               {copy.home.points.map((point, index) => {
                 const Icon = [Hammer, Leaf, Waves][index];
                 return (
-                  <article key={point.title} className="rounded-sm border border-ink/8 bg-shell/80 p-6 shadow-sm">
+                  <article key={point.title} className="surface-card p-6">
                     <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-rust/10 text-rust">
                       <Icon aria-hidden="true" className="h-5 w-5" />
                     </div>
@@ -179,12 +182,12 @@ export default async function HomePage({ params }: Props) {
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>
           <SectionHeading
-            eyebrow={locale === "ja" ? "BUILD" : "HANDMADE"}
-            title={locale === "ja" ? "竹と廃材と、たぶん浮くという楽観。" : "Bamboo, scrap wood, and the optimism that it might float."}
+            eyebrow={locale === "ja" ? "筏" : "THE RAFT"}
+            title={locale === "ja" ? "竹と廃材とロープで、筏を作った。" : "Bamboo, scrap wood, and rope — we built a raft."}
             body={
               locale === "ja"
-                ? "きれいにまとまったプロジェクトではありません。友人とロープと、使えるものを集めて、少しずつ形にした記録です。"
-                : "Not a polished project. Friends, rope, and whatever useful material was nearby — slowly tied together into something that still feels alive."
+                ? "家ではなく、海に出るための筏です。友人と一緒に、使えるものを集めながら、少しずつ形にした記録です。"
+                : "Not the house — the raft we took to the water. Built with friends, gathering what was useful nearby and tying it together slowly."
             }
             className="mb-10"
           />
@@ -229,7 +232,7 @@ export default async function HomePage({ params }: Props) {
 
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container className="max-w-3xl">
-          <article className="rounded-sm border border-ink/8 bg-shell p-8 shadow-soft">
+          <article className="surface-card p-8">
             <p className="eyebrow mb-4">
               <span className="h-px w-8 bg-rust/60" />
               {locale === "ja" ? "BOOKING" : "BOOKING"}

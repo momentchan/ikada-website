@@ -4,6 +4,7 @@ import type { LucideIcon } from "lucide-react";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
+import { PhotoGrid } from "@/components/PhotoGrid";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SplitPageIntro } from "@/components/SplitPageIntro";
 import { isLocale, t } from "@/lib/i18n";
@@ -46,6 +47,54 @@ export default async function StayPage({ params }: Props) {
   const copy = t(locale);
   const data = await getDataSnapshot();
 
+  const showcase = siteConfig.images.gallery.houseShowcase;
+
+  const roomPhotos = showcase.rooms.map((src, index) => ({
+    src,
+    alt:
+      index === 0
+        ? locale === "ja"
+          ? "畳とベッドのあるIKADAの寝室"
+          : "IKADA bedroom with tatami mats and warm lighting"
+        : index === 1
+          ? locale === "ja"
+            ? "畳間と座卓、座椅子のあるIKADAの室内"
+            : "Traditional tatami room with low table and floor seating at IKADA"
+          : locale === "ja"
+            ? "ツインベッドのあるIKADAの寝室"
+            : "IKADA bedroom with twin beds and wooden floors",
+  }));
+
+  const featurePhotos = [
+    {
+      key: "kitchen",
+      src: showcase.kitchen,
+      label: locale === "ja" ? "キッチン" : "Kitchen",
+      alt:
+        locale === "ja"
+          ? "IKADAのキッチンとダイニングテーブル"
+          : "IKADA kitchen and dining table",
+    },
+    {
+      key: "cinema",
+      src: showcase.cinema,
+      label: locale === "ja" ? "ホームシネマ" : "Home cinema",
+      alt:
+        locale === "ja"
+          ? "プロジェクターで映画を楽しむ和室"
+          : "Washitsu with projector screen for movie nights",
+    },
+    {
+      key: "bbq",
+      src: showcase.bbq,
+      label: locale === "ja" ? "BBQ" : "BBQ",
+      alt:
+        locale === "ja"
+          ? "夜の焚き火とBBQで集まる庭"
+          : "Evening campfire and BBQ gathering in the garden",
+    },
+  ];
+
   return (
     <>
       <SplitPageIntro
@@ -62,6 +111,46 @@ export default async function StayPage({ params }: Props) {
           />
         }
       />
+
+      <section className="section-rule bg-shell pb-16 pt-10 sm:pb-20 sm:pt-12">
+        <Container>
+          <SectionHeading
+            eyebrow={locale === "ja" ? "室内" : "INSIDE"}
+            title={locale === "ja" ? "畳、ベッド、ゆっくり過ごす部屋。" : "Tatami, beds, and rooms to slow down in."}
+            body={
+              locale === "ja"
+                ? "和室、寝室、キッチン、ホームシネマ、庭のBBQまで。島の暮らしに合わせて使えるスペースです。"
+                : "Washitsu, bedrooms, kitchen, home cinema, and garden BBQ — space for slow island days together."
+            }
+            className="mb-10"
+          />
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-rust">
+                {locale === "ja" ? "寝室・和室" : "Rooms"}
+              </h3>
+              <div className="mt-4">
+                <PhotoGrid images={roomPhotos} layout="three" />
+              </div>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              {featurePhotos.map((feature) => (
+                <article key={feature.key} className={feature.key === "bbq" ? "md:col-span-2" : undefined}>
+                  <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-rust">{feature.label}</h3>
+                  <ImagePanel
+                    src={feature.src}
+                    alt={feature.alt}
+                    className="mt-4 aspect-[4/3]"
+                    rounded="sm"
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>

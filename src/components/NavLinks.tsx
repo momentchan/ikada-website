@@ -38,7 +38,7 @@ export function NavLinks({
                   ? "bg-shell/15 text-shell"
                   : "text-shell/75 hover:bg-shell/10 hover:text-shell"
                 : isActive
-                  ? "bg-ink/8 text-ink"
+                  ? "bg-ink/14 text-ink shadow-soft"
                   : "text-ink/68 hover:bg-shell/80 hover:text-ink",
               linkClassName,
             )}

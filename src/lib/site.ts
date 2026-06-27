@@ -42,6 +42,16 @@ export const siteConfig = {
         "/images/house/IMG_0283.png",
         "/images/raft/PXL_20260427_070004827.jpg",
       ],
+      houseShowcase: {
+        rooms: [
+          "/images/house/PXL_20260219_031815994.jpg",
+          "/images/house/PXL_20260219_023611820.jpg",
+          "/images/house/PXL_20260219_032025978.jpg",
+        ],
+        cinema: "/images/house/PXL_20260227_103756580.MP.jpg",
+        kitchen: "/images/house/PXL_20260219_031946726.jpg",
+        bbq: "/images/house/PXL_20260221_125411257.jpg",
+      },
       island: [
         "/images/raft/DJI_0671.JPG",
         "/images/raft/DJI_0624.JPG",

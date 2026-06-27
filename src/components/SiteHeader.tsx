@@ -24,7 +24,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       className={cx(
         "top-0 z-50 w-full",
         isHeroOverlay
-          ? "fixed border-b border-shell/10 bg-ink/20 backdrop-blur-md"
+          ? "fixed border-b border-shell/10 bg-transparent backdrop-blur-[1px]"
           : "sticky border-b border-ink/8 bg-paper/92 backdrop-blur-xl",
       )}
     >

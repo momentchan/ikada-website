@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
-import { PageHero } from "@/components/PageHero";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { SectionHeading } from "@/components/SectionHeading";
+import { VideoHero } from "@/components/VideoHero";
 import { isLocale, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -46,13 +46,11 @@ export default async function StoryPage({ params }: Props) {
 
   return (
     <>
-      <PageHero
+      <VideoHero
+        video={siteConfig.video.storyRaft}
+        poster={siteConfig.images.raft}
         eyebrow="IKADA"
         title={copy.story.title}
-        body={copy.story.intro}
-        image={siteConfig.images.raft}
-        imageAlt="The handmade IKADA raft floating on Amami water"
-        fullScreen
       />
 
       <section className="section-rule bg-paper py-20 sm:py-28">

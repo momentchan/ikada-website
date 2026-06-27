@@ -51,7 +51,8 @@ export const siteConfig = {
     },
   },
   video: {
-    hero: "/video/House-720p.mp4",
+    hero: "/video/House-1080p-web.mp4",
+    storyRaft: "/video/Raft-1080p-web.mp4",
   },
 };
 

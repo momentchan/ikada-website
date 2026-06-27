@@ -1,10 +1,11 @@
-import { CalendarDays, ChevronDown, Hammer, Leaf, MapPinned, Waves } from "lucide-react";
+import { CalendarDays, Hammer, Leaf, MapPinned, Waves } from "lucide-react";
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
 import { ImagePanel } from "@/components/ImagePanel";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { SectionHeading } from "@/components/SectionHeading";
+import { VideoHero } from "@/components/VideoHero";
 import { isLocale, t } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 import { getSiteUrl, siteConfig } from "@/lib/site";
@@ -61,37 +62,12 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="relative h-svh min-h-svh overflow-hidden bg-ink text-shell">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster={siteConfig.images.hero}
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          aria-hidden="true"
-        >
-          <source src={siteConfig.video.hero} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/42 to-ink/8" />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/75 to-transparent" />
-        <Container className="relative flex h-full items-center pb-16 pt-28 sm:pb-24 sm:pt-32">
-          <div className="max-w-4xl">
-            <p className="eyebrow-light mb-5 sm:text-sm">
-              <span className="h-px w-10 bg-tide/70" />
-              {copy.home.eyebrow}
-            </p>
-            <h1 className="display-hero max-w-4xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
-              {copy.home.heroTitle}
-            </h1>
-          </div>
-        </Container>
-        <div className="absolute bottom-5 right-6 hidden text-shell/40 md:block" aria-hidden="true">
-          <ChevronDown className="h-6 w-6 animate-pulse" />
-        </div>
-      </section>
+      <VideoHero
+        video={siteConfig.video.hero}
+        poster={siteConfig.images.hero}
+        eyebrow={copy.home.eyebrow}
+        title={copy.home.heroTitle}
+      />
 
       <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>

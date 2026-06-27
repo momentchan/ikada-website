@@ -54,6 +54,23 @@ export default async function StoryPage({ params }: Props) {
       />
 
       <section className="section-rule bg-paper py-20 sm:py-28">
+        <Container className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <ImagePanel
+            src={siteConfig.images.raftArrival}
+            alt={copy.story.arrival.alt}
+            className="aspect-[4/3]"
+            rounded="sm"
+          />
+          <div>
+            <h2 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
+              {copy.story.arrival.title}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-ink/68">{copy.story.arrival.body}</p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-rule bg-shell py-20 sm:py-28">
         <Container className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr]">
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <div className="surface-card p-7">
@@ -91,7 +108,7 @@ export default async function StoryPage({ params }: Props) {
         </Container>
       </section>
 
-      <section className="section-rule bg-shell py-20 sm:py-28">
+      <section className="section-rule bg-paper py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow={locale === "ja" ? "筏" : "THE RAFT"}
@@ -107,7 +124,7 @@ export default async function StoryPage({ params }: Props) {
         </Container>
       </section>
 
-      <section className="section-rule bg-paper py-20 sm:py-28">
+      <section className="section-rule bg-shell py-20 sm:py-28">
         <Container className="grid items-start gap-12 lg:grid-cols-[0.88fr_1.12fr]">
           <div>
             <SectionHeading
@@ -126,6 +143,23 @@ export default async function StoryPage({ params }: Props) {
               className="h-auto w-full rounded-sm object-contain"
             />
           </figure>
+        </Container>
+      </section>
+
+      <section className="section-rule bg-paper py-20 sm:py-28">
+        <Container className="grid items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div>
+            <h2 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">
+              {copy.story.overnight.title}
+            </h2>
+            <p className="mt-4 text-base leading-8 text-ink/68">{copy.story.overnight.body}</p>
+          </div>
+          <ImagePanel
+            src={siteConfig.images.raftOvernight}
+            alt={copy.story.overnight.alt}
+            className="aspect-[4/3]"
+            rounded="sm"
+          />
         </Container>
       </section>
 

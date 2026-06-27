@@ -21,6 +21,8 @@ export const siteConfig = {
     logo: "/images/logo/logo.png",
     hero: "/images/house/IMG_20251128_142141.jpg",
     raft: "/images/raft/DSCF5737.JPG",
+    raftArrival: "/images/raft/DSCF5734.JPG",
+    raftOvernight: "/images/raft/DJI_0671.JPG",
     newsClip: "/images/raft/news_small.png",
     house: "/images/house/PXL_20260218_135513506.jpg",
     nature: "/images/raft/DJI_0671.JPG",

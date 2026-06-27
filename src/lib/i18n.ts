@@ -65,6 +65,16 @@ export const dictionary = {
         title: "The raft crossed the strait — and made the local paper.",
         body: "Four friends built a raft from scrap wood, plastic floats, blue tarps, and rope, then set out from Setouchi to cross the Oshima Strait. Wind and currents changed the plan more than once. When a local newspaper ran the story, it was still just an adventure among friends — not a guest house brand. But that clipping is part of how the name IKADA stayed alive.",
       },
+      arrival: {
+        title: "Arriving at Kakeromajima",
+        body: "Our first sail from Amami Oshima — four friends on the raft, pulling up on the beach at Kakeromajima.",
+        alt: "Four friends on the IKADA raft after arriving at Kakeromajima from Amami Oshima",
+      },
+      overnight: {
+        title: "One night on the raft",
+        body: "After two days stuck in the bay, we finally sailed out. That night we slept on the raft under the open sky.",
+        alt: "Four friends sleeping on the IKADA raft at sea after sailing out of the bay",
+      },
     },
     stay: {
       title: "Stay At IKADA",
@@ -196,6 +206,16 @@ export const dictionary = {
         eyebrow: "新聞に載った日",
         title: "廃材いかだで、大島海峡を横断した話。",
         body: "瀬戸内の海岸で集めた廃材、ブルーシート、ロープ。多国籍の友人たちと作った筏で、大島海峡への冒険に出ました。風や流れで予定は何度も変わりました。地元紙に載ったときも、まだゲストハウスの計画ではありませんでした。でもその記事は、IKADAという名前が残っていく理由のひとつです。",
+      },
+      arrival: {
+        title: "加計呂麻島に着いた日",
+        body: "奄美大島からの最初の航海。加計呂麻島の浜に筏を上げて、四人で並んだ日の写真です。",
+        alt: "奄美大島から加計呂麻島へ航海した後、浜辺に上げた筏の上に並ぶ四人",
+      },
+      overnight: {
+        title: "筏の上で眠った夜",
+        body: "湾で二日間動けなかったあと、ようやく湾を出て。その夜は、開けた空の下、筏の上で眠りました。",
+        alt: "湾を出たあと、海上の筏の上で寝袋に入って眠る四人",
       },
     },
     stay: {
